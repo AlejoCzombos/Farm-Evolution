@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://bfaaxf0qg36k6"]
+
+[ext_resource type="Script" path="res://Assets/UI/HUD.gd" id="1_c6tig"]
+[ext_resource type="PackedScene" uid="uid://f2ro8hkm550c" path="res://Assets/UI/objetivePanel.tscn" id="1_ydi1f"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_c6tig")
+objective_panel = ExtResource("1_ydi1f")
+
+[node name="ObjetivesContainer" type="CenterContainer" parent="."]
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.259
+offset_bottom = 0.167999
+grow_horizontal = 2
+
+[node name="ObjetivesPanelContainer" type="HBoxContainer" parent="ObjetivesContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
