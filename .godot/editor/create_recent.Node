@@ -1,3 +1,5 @@
+Timer
+ColorRect
 AnimationPlayer
 CanvasLayer
 TextureRect
@@ -7,14 +9,7 @@ VBoxContainer
 CenterContainer
 AnimatedSprite2D
 Sprite2D
-ColorRect
 Panel
 HBoxContainer
 Container
 Node
-RayCast2D
-CollisionShape2D
-Area2D
-TileMap
-Camera2D
-CharacterBody2D

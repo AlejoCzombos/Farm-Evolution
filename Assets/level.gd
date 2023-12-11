@@ -21,26 +21,6 @@ func _ready():
 	Signals.onEvolveCow.connect(_on_evolve_cow)
 	Signals.createObjetives.emit(objetives.duplicate())
 
-#func _on_evolve_cow(Cow: Node):
-#	actual_objetives = objetives.duplicate()
-#
-#	var childrens = get_children()
-#
-#	for child in childrens:
-#		if child.is_in_group("Cows") and child != Cow:
-#
-#			if child.actual_level in actual_objetives.keys():
-#
-#				if actual_objetives.get(child.actual_level) > 1:
-#					actual_objetives[child.actual_level] -= 1
-#				else:
-#					actual_objetives.erase(child.actual_level)
-#
-#	Signals.updateObjetives.emit(dictionary_to_array(actual_objetives))
-#
-#	if actual_objetives.is_empty() :
-#		move_next_level()
-
 func _on_evolve_cow(Cow: Node):
 	var childrens = get_children()
 	objetives_completed = {}
