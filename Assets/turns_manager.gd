@@ -2,47 +2,44 @@ extends Node
 
 @onready var tile_map : TileMap = $"../../TileMap"
 
-var turns : Array
-var current_turn : Array
+var move_history: Array = []
 
-var all_tiles : Array[Vector2i]
-var used_tiles : Array[Vector2i]
-var matrix_size : Vector2i
-var min_values_matrix: Vector2i
+enum ActionType { MOVE_PLAYER, EVOLVE_ANIMAL }
 
 func _ready():
-	all_tiles = tile_map.get_used_cells(2)
-	used_tiles = get_used_tiles(all_tiles)
-	matrix_size = get_matrix_size(used_tiles)
-	
+	Signals.movePlayer.connect(move_player)
+	Signals.movePlayerAndEvolve.connect(move_player_and_evolve)
+	Signals.undoMove.connect(undo_last_action)
 
-func get_used_tiles(total_tiles : Array[Vector2i]) -> Array[Vector2i]:
-	var walkeable_tiles : Array[Vector2i]
-	for i in range(all_tiles.size()):
-		var tile_data: TileData = tile_map.get_cell_tile_data(2, all_tiles[i])
+func record_action(action_type: ActionType, data: Dictionary):
+	move_history.append({ "type": action_type, "data": data })
+
+func undo_last_action():
+	if move_history.size() > 0:
+		var last_action = move_history.pop_back()
+		var action_type = last_action["type"]
+		var data = last_action["data"]
 		
-		if not tile_data.get_custom_data("walkable"):
-			continue
-		
-		walkeable_tiles.append(all_tiles[i])
-	return walkeable_tiles
+		match action_type:
+			ActionType.MOVE_PLAYER:
+				undo_move_player(data)
+			ActionType.EVOLVE_ANIMAL:
+				undo_evolve_animal(data)
 
-func get_matrix_size(walkeable_tiles : Array[Vector2i]) -> Vector2i:
-	var min_size : Vector2i = Vector2i(99,99)
-	var max_size : Vector2i = Vector2i(-99,-99)
-	
-	for i in range(used_tiles.size()):
-		if walkeable_tiles[i].x < min_size.x: min_size.x = walkeable_tiles[i].x
-		if walkeable_tiles[i].y < min_size.y: min_size.y = walkeable_tiles[i].y
-		if walkeable_tiles[i].x > max_size.x: max_size.x = walkeable_tiles[i].x
-		if walkeable_tiles[i].y > max_size.y: max_size.y = walkeable_tiles[i].y
-	
-	min_values_matrix = max_size
-	return Vector2i(
-		(max_size.x - min_size.x) + 1,
-		(max_size.y - min_size.y) + 1
-	)
+func undo_move_player(data: Dictionary):
+	var player = data["player"]
+	var from_pos = data["from_pos"]
+	player.handler_move(from_pos)
 
-func print_matrix(matrix: Array):
-	for row in matrix:
-		print(row)
+func undo_evolve_animal(data: Dictionary):
+	var animal = data["animal"]
+	animal.level = data["old_level"]
+
+func move_player(player: Player, from_pos: Vector2i, to_pos: Vector2i):
+	print(player, from_pos, to_pos)
+	record_action(ActionType.MOVE_PLAYER, { "player": player, "from_pos": from_pos, "to_pos": to_pos })
+
+func move_player_and_evolve(animal: Animal):
+	var old_level = animal.level
+	animal.level += 1
+	record_action(ActionType.EVOLVE_ANIMAL, { "animal": animal, "old_level": old_level, "new_level": animal.level })

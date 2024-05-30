@@ -5,3 +5,4 @@ res://Assets/turns_manager.gd
 res://Assets/test_level.tscn
 res://Assets/test_level2.tscn
 res://Assets/player.gd
+res://Assets/signals.gd

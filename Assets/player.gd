@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Player
 
 @onready var tile_map = $"../TileMap"
 @onready var animation_player = $AnimationPlayer
@@ -20,7 +21,9 @@ func _process(_delta):
 		move(Vector2.UP)
 	if Input.is_action_just_pressed("ui_down"):
 		move(Vector2.DOWN)
-
+	
+	if Input.is_key_pressed(KEY_Z):
+		Signals.undoMove.emit()
 
 func move(direction: Vector2):
 	if direction.x < 0:
@@ -53,7 +56,27 @@ func move(direction: Vector2):
 		
 		if not can_move:
 			return
+	else:
+		Signals.movePlayer.emit(
+		self,
+		current_tile,
+		calculateCurrentTileCow(direction, current_tile)
+		)
 	
+	if not is_moving:
+		var tweenMoviment : Tween = create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_QUART)
+		tweenMoviment.tween_property(self, "position", next_position , 0.15)
+		tweenMoviment.finished.connect(prueba)
+		
+		animation_player.play("Move")
+		is_moving = true
+
+func handler_move(to_pos: Vector2i):
+	var next_position: Vector2 = tile_map.map_to_local(to_pos)
+	
+	if next_position == Vector2.ZERO:
+		animation_player.play("Error")
+		return
 	
 	if not is_moving:
 		var tweenMoviment : Tween = create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_QUART)
