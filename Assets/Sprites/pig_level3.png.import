@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://i7tnia2b35i"
-path="res://.godot/imported/tile001.png-0127967a501e0e91f160914abb826c99.ctex"
+uid="uid://cqwvagow643v5"
+path="res://.godot/imported/pig_level3.png-3d94214532165eeaf5a1af4f99335ab2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/tile001.png"
-dest_files=["res://.godot/imported/tile001.png-0127967a501e0e91f160914abb826c99.ctex"]
+source_file="res://Assets/Sprites/pig_level3.png"
+dest_files=["res://.godot/imported/pig_level3.png-3d94214532165eeaf5a1af4f99335ab2.ctex"]
 
 [params]
 

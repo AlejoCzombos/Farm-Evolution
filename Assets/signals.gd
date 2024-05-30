@@ -1,5 +1,5 @@
 extends Node
 
-signal onEvolveCow
+signal onEvolveAnimal
 signal createObjetives
 signal updateObjetives

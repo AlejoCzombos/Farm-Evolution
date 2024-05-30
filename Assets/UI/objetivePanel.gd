@@ -1,11 +1,17 @@
 extends Panel
 
 @export var cowSprites : Array[Texture]
+@export var pigSprites : Array[Texture]
 var level : int = 0
 
-func addTexture(index):
-	level = index + 1
-	$VBoxContainer/TextureRect.texture = cowSprites[index]
+func addTexture(animal_type, animal_level):
+	match animal_type:
+		"COW":
+			level = animal_level + 1
+			$VBoxContainer/TextureRect.texture = cowSprites[animal_level]
+		"PIG": 
+			level = animal_level + 1
+			$VBoxContainer/TextureRect.texture = pigSprites[animal_level]
 
 func activateCheckBox():
 	$VBoxContainer/CheckBox.button_pressed = true

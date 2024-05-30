@@ -1,32 +1,29 @@
-[gd_scene load_steps=14 format=3 uid="uid://nte0em5d7ugp"]
+[gd_scene load_steps=8 format=3 uid="uid://cnm4h4pvbn7rx"]
 
 [ext_resource type="Texture2D" uid="uid://dfgflcnjj2p3t" path="res://Assets/Cow.png" id="1_iyvbe"]
-[ext_resource type="Script" path="res://Assets/cow.gd" id="2_pq20n"]
+[ext_resource type="PackedScene" uid="uid://nte0em5d7ugp" path="res://Assets/animal.tscn" id="1_mayjv"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dgyki"]
-size = Vector2(16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ed5b3"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ve78n"]
 atlas = ExtResource("1_iyvbe")
 region = Rect2(0, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_efjsf"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_8v7qx"]
 atlas = ExtResource("1_iyvbe")
 region = Rect2(16, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_bgwvi"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ce3m"]
 atlas = ExtResource("1_iyvbe")
 region = Rect2(32, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_pwhqk"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_idmc3"]
 atlas = ExtResource("1_iyvbe")
 region = Rect2(48, 0, 16, 16)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_q7gxy"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_oto2x"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ed5b3")
+"texture": SubResource("AtlasTexture_ve78n")
 }],
 "loop": true,
 "name": &"Level1",
@@ -34,7 +31,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_efjsf")
+"texture": SubResource("AtlasTexture_8v7qx")
 }],
 "loop": true,
 "name": &"Level2",
@@ -42,7 +39,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_bgwvi")
+"texture": SubResource("AtlasTexture_3ce3m")
 }],
 "loop": true,
 "name": &"Level3",
@@ -50,153 +47,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_pwhqk")
+"texture": SubResource("AtlasTexture_idmc3")
 }],
 "loop": true,
 "name": &"Level4",
 "speed": 5.0
 }]
 
-[sub_resource type="Animation" id="Animation_27udl"]
-resource_name = "Error"
-length = 0.2
-step = 0.01
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.05, 0.11, 0.2),
-"transitions": PackedFloat32Array(-2, -2, -2, -2),
-"update": 0,
-"values": [0.0, 0.523599, -0.20944, 0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.05, 0.11, 0.2),
-"transitions": PackedFloat32Array(-2, -2, -2, -2),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(1.2, 0.85), Vector2(0.9, 1.1), Vector2(1, 1)]
-}
+[node name="Cow" instance=ExtResource("1_mayjv")]
 
-[sub_resource type="Animation" id="Animation_ak0pg"]
-resource_name = "Error2"
-length = 0.2
-step = 0.01
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.05, 0.11, 0.2),
-"transitions": PackedFloat32Array(-2, -2, -2, -2),
-"update": 0,
-"values": [0.0, -0.523599, 0.20944, 0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.05, 0.12, 0.2),
-"transitions": PackedFloat32Array(-2, -2, -2, -2),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(0.9, 1.1), Vector2(1.2, 0.85), Vector2(1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_1sphn"]
-resource_name = "Move"
-length = 0.25
-step = 0.01
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.06, 0.16, 0.25),
-"transitions": PackedFloat32Array(-2, -2, -2, -2),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(1.7, 0.8), Vector2(0.9, 1.4), Vector2(1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_uri2j"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_lx7tb"]
-_data = {
-"Error": SubResource("Animation_27udl"),
-"Error2": SubResource("Animation_ak0pg"),
-"Move": SubResource("Animation_1sphn"),
-"RESET": SubResource("Animation_uri2j")
-}
-
-[node name="Cow" type="Area2D" groups=["Cows"]]
-light_mask = 8
-visibility_layer = 8
-z_index = 15
-z_as_relative = false
-collision_layer = 2
-collision_mask = 2
-script = ExtResource("2_pq20n")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_dgyki")
-
-[node name="Sprite" type="AnimatedSprite2D" parent="."]
-light_mask = 8
-visibility_layer = 8
-texture_filter = 1
-position = Vector2(0, 5)
-sprite_frames = SubResource("SpriteFrames_q7gxy")
-animation = &"Level1"
-autoplay = "Level1"
-offset = Vector2(0, -5)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_lx7tb")
-}
-
-[node name="RayCast2D" type="RayCast2D" parent="."]
-enabled = false
-target_position = Vector2(0, 16)
-collision_mask = 2
-collide_with_areas = true
-collide_with_bodies = false
+[node name="Sprite" parent="." index="1"]
+sprite_frames = SubResource("SpriteFrames_oto2x")

@@ -1,10 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://f2ro8hkm550c"]
+[gd_scene load_steps=11 format=3 uid="uid://f2ro8hkm550c"]
 
 [ext_resource type="Script" path="res://Assets/UI/objetivePanel.gd" id="1_41kaf"]
-[ext_resource type="Texture2D" uid="uid://q236cg3ufis5" path="res://Assets/Sprites/tile003.png" id="1_xp1gu"]
-[ext_resource type="Texture2D" uid="uid://dngirqs0lqm2h" path="res://Assets/Sprites/tile000.png" id="2_tuxii"]
-[ext_resource type="Texture2D" uid="uid://i7tnia2b35i" path="res://Assets/Sprites/tile001.png" id="3_ay0q5"]
-[ext_resource type="Texture2D" uid="uid://bo5wewhmrp5ij" path="res://Assets/Sprites/tile002.png" id="4_d00n7"]
+[ext_resource type="Texture2D" uid="uid://dngirqs0lqm2h" path="res://Assets/Sprites/cow_level1.png" id="2_os00y"]
+[ext_resource type="Texture2D" uid="uid://i7tnia2b35i" path="res://Assets/Sprites/cow_level2.png" id="3_trjt0"]
+[ext_resource type="Texture2D" uid="uid://bo5wewhmrp5ij" path="res://Assets/Sprites/cow_level3.png" id="4_e1m30"]
+[ext_resource type="Texture2D" uid="uid://q236cg3ufis5" path="res://Assets/Sprites/cow_level4.png" id="5_5xr38"]
+[ext_resource type="Texture2D" uid="uid://bjc8ndks0w4sj" path="res://Assets/Sprites/pig_level1.png" id="6_dpl44"]
+[ext_resource type="Texture2D" uid="uid://dl5bgwa6r2mbk" path="res://Assets/Sprites/pig_level2.png" id="7_fnnqn"]
+[ext_resource type="Texture2D" uid="uid://cqwvagow643v5" path="res://Assets/Sprites/pig_level3.png" id="8_q1thy"]
+[ext_resource type="Texture2D" uid="uid://cgnhe2ox3hae5" path="res://Assets/Sprites/pig_level4.png" id="9_ogm36"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4apva"]
 
@@ -15,7 +19,8 @@ size_flags_horizontal = 4
 mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxEmpty_4apva")
 script = ExtResource("1_41kaf")
-cowSprites = Array[Texture]([ExtResource("2_tuxii"), ExtResource("3_ay0q5"), ExtResource("4_d00n7"), ExtResource("1_xp1gu")])
+cowSprites = Array[Texture]([ExtResource("2_os00y"), ExtResource("3_trjt0"), ExtResource("4_e1m30"), ExtResource("5_5xr38")])
+pigSprites = Array[Texture]([ExtResource("6_dpl44"), ExtResource("7_fnnqn"), ExtResource("8_q1thy"), ExtResource("9_ogm36")])
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -44,7 +49,7 @@ grow_vertical = 2
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
-texture = ExtResource("1_xp1gu")
+texture = ExtResource("5_5xr38")
 expand_mode = 5
 
 [node name="CheckBox" type="CheckBox" parent="VBoxContainer"]

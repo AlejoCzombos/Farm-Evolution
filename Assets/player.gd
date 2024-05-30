@@ -23,7 +23,6 @@ func _process(_delta):
 
 
 func move(direction: Vector2):
-	
 	if direction.x < 0:
 		animated_sprite.flip_h = true
 	elif direction.x > 0:

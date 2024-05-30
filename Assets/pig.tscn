@@ -1,0 +1,61 @@
+[gd_scene load_steps=8 format=3 uid="uid://01dnsy4p70b"]
+
+[ext_resource type="PackedScene" uid="uid://nte0em5d7ugp" path="res://Assets/animal.tscn" id="1_5hvq7"]
+[ext_resource type="Texture2D" uid="uid://dfgflcnjj2p3t" path="res://Assets/Cow.png" id="2_aya18"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pt5p2"]
+atlas = ExtResource("2_aya18")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_60pct"]
+atlas = ExtResource("2_aya18")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6nycg"]
+atlas = ExtResource("2_aya18")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jsrf5"]
+atlas = ExtResource("2_aya18")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dykwc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pt5p2")
+}],
+"loop": true,
+"name": &"Level1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_60pct")
+}],
+"loop": true,
+"name": &"Level2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6nycg")
+}],
+"loop": true,
+"name": &"Level3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jsrf5")
+}],
+"loop": true,
+"name": &"Level4",
+"speed": 5.0
+}]
+
+[node name="pig" instance=ExtResource("1_5hvq7")]
+animal_type = 1
+
+[node name="Sprite" parent="." index="1"]
+sprite_frames = SubResource("SpriteFrames_dykwc")

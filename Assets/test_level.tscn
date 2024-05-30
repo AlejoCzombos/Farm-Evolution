@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bow2abkntadj6"]
+[gd_scene load_steps=14 format=3 uid="uid://bow2abkntadj6"]
 
 [ext_resource type="Script" path="res://Assets/level.gd" id="1_cwlko"]
 [ext_resource type="PackedScene" uid="uid://da8n4g4iyu2r6" path="res://Assets/player.tscn" id="1_gydwm"]
@@ -6,8 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://cnr2j3osmraxr" path="res://Assets/test_level2.tscn" id="2_mm2gf"]
 [ext_resource type="Texture2D" uid="uid://di6tmcrm1af3w" path="res://Assets/Vallas.png" id="3_runjn"]
 [ext_resource type="Script" path="res://Assets/CameraShake.gd" id="3_v0fk2"]
-[ext_resource type="PackedScene" uid="uid://nte0em5d7ugp" path="res://Assets/cow.tscn" id="4_w5sp0"]
+[ext_resource type="PackedScene" uid="uid://cnm4h4pvbn7rx" path="res://Assets/cow.tscn" id="4_w5sp0"]
 [ext_resource type="PackedScene" uid="uid://bfaaxf0qg36k6" path="res://Assets/UI/hud.tscn" id="7_riw22"]
+[ext_resource type="PackedScene" uid="uid://01dnsy4p70b" path="res://Assets/pig.tscn" id="9_26h8b"]
+[ext_resource type="PackedScene" uid="uid://l8q7e2x5me4c" path="res://Assets/scene_manager.tscn" id="10_t5g1s"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kl20b"]
 resource_name = "Terrain"
@@ -774,10 +776,18 @@ sources/4 = SubResource("TileSetAtlasSource_h8vj7")
 script = ExtResource("1_cwlko")
 next_level = ExtResource("2_mm2gf")
 objetives = {
+"COW": {
 1: 0,
-2: 1,
+2: 0,
 3: 1,
 4: 0
+},
+"PIG": {
+1: 0,
+2: 2,
+3: 0,
+4: 0
+}
 }
 
 [node name="Player" parent="." instance=ExtResource("1_gydwm")]
@@ -805,22 +815,33 @@ layer_2/name = "Movement"
 layer_2/z_index = 10
 layer_2/tile_data = PackedInt32Array(-131075, 3014656, 14, -196606, 3145728, 14, 131074, 3145728, 16, 196605, 3014656, 16, 131070, 3080192, 15, 131071, 3080192, 15, 65536, 3080192, 15, 65537, 3080192, 15, 1, 3080192, 15, -65535, 3080192, 15, -131071, 3080192, 15, -131072, 3080192, 15, -65537, 3080192, 15, -65538, 3080192, 15, -2, 3080192, 15, 65534, 3080192, 15, 65535, 3080192, 15, 0, 3080192, 15, -65536, 3080192, 15, -1, 3080192, 15, 196606, 3080192, 16, 196607, 3080192, 16, 131072, 3080192, 16, 131073, 3080192, 16, -131074, 3080192, 14, -131073, 3080192, 14, -196608, 3080192, 14, -196607, 3080192, 14, -131070, 3145728, 15, -65534, 3145728, 15, 2, 3145728, 15, 65538, 3145728, 15, -65539, 3014656, 15, -3, 3014656, 15, 65533, 3014656, 15, 131069, 3014656, 15, -196612, 65540, 1, -262141, 196612, 1, -196611, 131076, 1, -196610, 131076, 1, -196609, 131076, 1, -262144, 131076, 1, -262143, 131076, 1, -262142, 131076, 1, -131076, 65540, 2, -65540, 65540, 2, -4, 65540, 2, 65532, 65540, 2, 131068, 65540, 2, 196604, 65540, 2, -196605, 196612, 2, -131069, 196612, 2, -65533, 196612, 2, 3, 196612, 2, 65539, 196612, 2, 131075, 196612, 2, 262140, 65540, 5, 262141, 131076, 1, 262142, 131076, 1, 262143, 131076, 1, 196608, 131076, 1, 196609, 131076, 1, 196610, 131076, 1, 196611, 196612, 5)
 
-[node name="Cow" parent="." instance=ExtResource("4_w5sp0")]
-position = Vector2(-24, -8)
+[node name="HUD" parent="." instance=ExtResource("7_riw22")]
 
-[node name="Cow5" parent="." instance=ExtResource("4_w5sp0")]
-position = Vector2(-24, 8)
+[node name="Animals" type="Node" parent="."]
 
-[node name="Cow2" parent="." instance=ExtResource("4_w5sp0")]
-position = Vector2(-8, -24)
-
-[node name="Cow4" parent="." instance=ExtResource("4_w5sp0")]
-position = Vector2(8, -24)
-
-[node name="Cow3" parent="." instance=ExtResource("4_w5sp0")]
-position = Vector2(-8, -8)
-
-[node name="Cow6" parent="." instance=ExtResource("4_w5sp0")]
+[node name="Cow" parent="Animals" instance=ExtResource("4_w5sp0")]
 position = Vector2(8, -8)
 
-[node name="HUD" parent="." instance=ExtResource("7_riw22")]
+[node name="Cow3" parent="Animals" instance=ExtResource("4_w5sp0")]
+position = Vector2(-8, -8)
+
+[node name="Cow4" parent="Animals" instance=ExtResource("4_w5sp0")]
+position = Vector2(-8, -24)
+
+[node name="Cow2" parent="Animals" instance=ExtResource("4_w5sp0")]
+position = Vector2(8, -24)
+
+[node name="pig" parent="Animals" instance=ExtResource("9_26h8b")]
+position = Vector2(-8, 24)
+
+[node name="pig2" parent="Animals" instance=ExtResource("9_26h8b")]
+position = Vector2(8, 24)
+
+[node name="pig3" parent="Animals" instance=ExtResource("9_26h8b")]
+position = Vector2(-8, 8)
+
+[node name="pig4" parent="Animals" instance=ExtResource("9_26h8b")]
+position = Vector2(8, 8)
+
+[node name="SceneManager" parent="." instance=ExtResource("10_t5g1s")]
+next_level = ExtResource("2_mm2gf")
