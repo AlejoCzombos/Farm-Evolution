@@ -1,8 +1,9 @@
-res://Assets/player.tscn
+res://Assets/test_level.tscn
 res://circleTransition.gdshader
 res://deform.gdshader
-res://Assets/turns_manager.gd
-res://Assets/test_level.tscn
 res://Assets/test_level2.tscn
-res://Assets/player.gd
-res://Assets/signals.gd
+res://Assets/cow.tscn
+res://Assets/scene_manager.tscn
+res://Assets/turns_manager.gd
+res://animal.gd
+res://Assets/level.gd

@@ -9,6 +9,9 @@ class_name Player
 var is_moving : bool = false
 var actual_direction = Vector2.RIGHT
 
+func _ready():
+	Globals.set_current_player(self)
+
 func _process(_delta):
 	if is_moving:
 		return
@@ -22,7 +25,7 @@ func _process(_delta):
 	if Input.is_action_just_pressed("ui_down"):
 		move(Vector2.DOWN)
 	
-	if Input.is_key_pressed(KEY_Z):
+	if Input.is_action_just_pressed("ui_undo"):
 		Signals.undoMove.emit()
 
 func move(direction: Vector2):
@@ -52,13 +55,12 @@ func move(direction: Vector2):
 			area.playError()
 			return
 		
-		var can_move = area.move(next_position_cow, direction)
+		var can_move = area.move(next_position_cow, direction, current_tile_cow, current_tile)
 		
 		if not can_move:
 			return
 	else:
 		Signals.movePlayer.emit(
-		self,
 		current_tile,
 		calculateCurrentTileCow(direction, current_tile)
 		)

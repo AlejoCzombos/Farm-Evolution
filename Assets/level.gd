@@ -28,15 +28,18 @@ func _ready():
 			if objetives[animal_type][key] != 0:
 				actual_objetives[animal_type][key] = objetives[animal_type][key]
 	
-	_on_evolve_animal(null)
+	_on_evolve_animal()
 	Signals.onEvolveAnimal.connect(_on_evolve_animal)
 	Signals.createObjetives.emit(actual_objetives)
 
-func _on_evolve_animal(Cow: Node):
+func _on_evolve_animal():
 	var animals = get_tree().get_nodes_in_group("Animal")
 	objetives_completed = { "COW": {}, "PIG": {}}
 	
 	for animal in animals:
+		if not animal.is_activate: 
+			continue
+		
 		var animal_type = animal.getTypeString()
 		var animal_level = animal.getLevel()
 		
