@@ -10,15 +10,34 @@ config_version=5
 
 [application]
 
-config/name="Cow Evolution"
-run/main_scene="res://Assets/test_level.tscn"
+config/name="Farm Evolution"
+config/version="0.1"
+run/main_scene="res://Game/Levels/test_level.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
+run/max_fps=120
 config/icon="res://icon.svg"
 
 [autoload]
 
-Globals="*res://Assets/Globals.gd"
-Signals="*res://Assets/signals.gd"
+Globals="*res://Game/Autoloads/Globals.gd"
+Signals="*res://Game/Autoloads/signals.gd"
+
+[display]
+
+window/size/viewport_width=480
+window/size/viewport_height=270
+window/size/window_width_override=960
+window/size/window_height_override=540
+window/stretch/mode="canvas_items"
+window/stretch/scale_mode="integer"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/SimpleTODO/plugin.cfg")
+
+[gui]
+
+theme/custom="res://Resources/Menu/custom_theme.tres"
 
 [layer_names]
 
@@ -29,3 +48,9 @@ Signals="*res://Assets/signals.gd"
 2d_render/layer_5="Player"
 2d_physics/layer_1="Player"
 2d_physics/layer_2="Cow"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
+2d/snap/snap_2d_transforms_to_pixel=true
+2d/snap/snap_2d_vertices_to_pixel=true

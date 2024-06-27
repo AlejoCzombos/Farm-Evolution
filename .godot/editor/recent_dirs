@@ -1,2 +1,4 @@
-res://Assets
-res://Assets/UI
+res://Game/Menus
+res://Resources/Menu
+res://Game
+res://Game/Managers

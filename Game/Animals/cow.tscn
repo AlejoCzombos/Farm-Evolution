@@ -1,0 +1,60 @@
+[gd_scene load_steps=8 format=3 uid="uid://cnm4h4pvbn7rx"]
+
+[ext_resource type="Texture2D" uid="uid://dfgflcnjj2p3t" path="res://Resources/Animals/Cow.png" id="1_iyvbe"]
+[ext_resource type="PackedScene" uid="uid://nte0em5d7ugp" path="res://Game/Animals/animal.tscn" id="1_mayjv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ve78n"]
+atlas = ExtResource("1_iyvbe")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8v7qx"]
+atlas = ExtResource("1_iyvbe")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ce3m"]
+atlas = ExtResource("1_iyvbe")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_idmc3"]
+atlas = ExtResource("1_iyvbe")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oto2x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ve78n")
+}],
+"loop": true,
+"name": &"Level1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8v7qx")
+}],
+"loop": true,
+"name": &"Level2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ce3m")
+}],
+"loop": true,
+"name": &"Level3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_idmc3")
+}],
+"loop": true,
+"name": &"Level4",
+"speed": 5.0
+}]
+
+[node name="Cow" instance=ExtResource("1_mayjv")]
+
+[node name="Sprite" parent="." index="1"]
+sprite_frames = SubResource("SpriteFrames_oto2x")

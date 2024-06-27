@@ -1,0 +1,65 @@
+[gd_scene load_steps=5 format=3 uid="uid://dnh6bfqr73q2n"]
+
+[ext_resource type="Script" path="res://Game/main_menu.gd" id="1_8pver"]
+[ext_resource type="PackedScene" uid="uid://bfefmb3j5osdr" path="res://Game/Menus/rich_text_button.tscn" id="1_gqccl"]
+[ext_resource type="PackedScene" uid="uid://bow2abkntadj6" path="res://Game/Levels/test_level.tscn" id="2_e82ev"]
+[ext_resource type="PackedScene" uid="uid://l8q7e2x5me4c" path="res://Game/Managers/scene_manager.tscn" id="3_0mome"]
+
+[node name="main_menu" type="CanvasLayer"]
+script = ExtResource("1_8pver")
+initial_level_scene = ExtResource("2_e82ev")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MenuContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="Title" type="RichTextLabel" parent="CenterContainer/MenuContainer"]
+custom_minimum_size = Vector2(350, 35)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0.560784, 0, 1)
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[outline_size=4][center][wave amp=10.0 freq=1.0 connected=1][color=base]Farm Evolution[/color][/wave]"
+scroll_active = false
+
+[node name="VSplitContainer" type="VSplitContainer" parent="CenterContainer/MenuContainer"]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+
+[node name="ButtonContainer" type="VBoxContainer" parent="CenterContainer/MenuContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="PlayButton" parent="CenterContainer/MenuContainer/ButtonContainer" instance=ExtResource("1_gqccl")]
+layout_mode = 2
+metadata/_edit_lock_ = true
+
+[node name="OptionsButton" parent="CenterContainer/MenuContainer/ButtonContainer" instance=ExtResource("1_gqccl")]
+layout_mode = 2
+
+[node name="RichTextLabel" parent="CenterContainer/MenuContainer/ButtonContainer/OptionsButton" index="0"]
+text = "[outline_size=4][center][wave amp=20.0 freq=6.0 connected=1][color=base]Options[/color][/wave]"
+
+[node name="ExitButton" parent="CenterContainer/MenuContainer/ButtonContainer" instance=ExtResource("1_gqccl")]
+layout_mode = 2
+
+[node name="RichTextLabel" parent="CenterContainer/MenuContainer/ButtonContainer/ExitButton" index="0"]
+text = "[outline_size=4][center][wave amp=20.0 freq=6.0 connected=1][color=base]Exit[/color][/wave]"
+
+[node name="SceneManager" parent="." instance=ExtResource("3_0mome")]
+
+[connection signal="pressed" from="CenterContainer/MenuContainer/ButtonContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="CenterContainer/MenuContainer/ButtonContainer/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="CenterContainer/MenuContainer/ButtonContainer/ExitButton" to="." method="_on_exit_button_pressed"]
+
+[editable path="CenterContainer/MenuContainer/ButtonContainer/PlayButton"]
+[editable path="CenterContainer/MenuContainer/ButtonContainer/OptionsButton"]
+[editable path="CenterContainer/MenuContainer/ButtonContainer/ExitButton"]
+[editable path="SceneManager"]
