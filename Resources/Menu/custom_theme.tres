@@ -48,11 +48,11 @@ region_rect = Rect2(97, 97, 30, 30)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2856q"]
 texture = ExtResource("2_ibvx5")
-texture_margin_left = 7.0
-texture_margin_top = 7.0
-texture_margin_right = 7.0
-texture_margin_bottom = 7.0
-region_rect = Rect2(33, 97, 30, 30)
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 5.0
+texture_margin_bottom = 2.0
+region_rect = Rect2(38, 102, 23, 20)
 
 [resource]
 Button/colors/font_color = Color(0.875, 0.875, 0.875, 1)
@@ -68,9 +68,9 @@ Button/colors/icon_hover_color = Color(1, 1, 1, 1)
 Button/colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
 Button/colors/icon_normal_color = Color(1, 1, 1, 1)
 Button/colors/icon_pressed_color = Color(1, 1, 1, 1)
-Button/constants/h_separation = 4
+Button/constants/h_separation = 2
 Button/constants/icon_max_width = 10
-Button/constants/outline_size = 7
+Button/constants/outline_size = 4
 Button/font_sizes/font_size = 16
 Button/fonts/font = ExtResource("1_d2n1s")
 Button/styles/disabled = SubResource("StyleBoxFlat_thelu")
@@ -89,6 +89,9 @@ PanelContainerVariant/base_type = &"PanelContainer"
 PanelContainerVariant/styles/panel = SubResource("StyleBoxTexture_2856q")
 RichTextLabel/colors/font_outline_color = Color(0, 0, 0, 1)
 RichTextLabel/constants/line_separation = 7
-RichTextLabel/constants/outline_size = 7
+RichTextLabel/constants/outline_size = 4
 RichTextLabel/fonts/bold_font = ExtResource("1_d2n1s")
 RichTextLabel/fonts/normal_font = ExtResource("1_d2n1s")
+RichTextLabelTitles/base_type = &"RichTextLabel"
+RichTextLabelTitles/constants/outline_size = 4
+RichTextLabelTitles/font_sizes/normal_font_size = 16

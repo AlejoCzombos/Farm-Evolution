@@ -10,9 +10,12 @@ script = ExtResource("1_8pver")
 initial_level_scene = ExtResource("2_e82ev")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
+z_as_relative = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -15.0
+offset_right = 15.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -29,7 +32,7 @@ text = "[outline_size=4][center][wave amp=10.0 freq=1.0 connected=1][color=base]
 scroll_active = false
 
 [node name="VSplitContainer" type="VSplitContainer" parent="CenterContainer/MenuContainer"]
-custom_minimum_size = Vector2(0, 75)
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 
 [node name="ButtonContainer" type="VBoxContainer" parent="CenterContainer/MenuContainer"]
@@ -39,7 +42,6 @@ alignment = 1
 
 [node name="PlayButton" parent="CenterContainer/MenuContainer/ButtonContainer" instance=ExtResource("1_gqccl")]
 layout_mode = 2
-metadata/_edit_lock_ = true
 
 [node name="OptionsButton" parent="CenterContainer/MenuContainer/ButtonContainer" instance=ExtResource("1_gqccl")]
 layout_mode = 2

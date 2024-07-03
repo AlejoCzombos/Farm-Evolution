@@ -5,7 +5,7 @@ extends Node
 @onready var animator = $AnimationPlayer
 
 func _ready():
-	$CanvasLayer/ColorRect.visible = true
+	$ColorRect.visible = true
 
 func change_scene_to_next_level() -> void:
 	animator.play("fade-out")
