@@ -1,12 +1,7 @@
-res://Game/HUD/PauseMenu.gd
-res://Game/HUD/HUD.gd
-res://Game/HUD/hud.tscn
+res://Game/Levels/level_base.tscn
 res://Resources/Menu/custom_theme.tres
 res://Resources/Shaders/circleTransition.gdshader
 res://Resources/Shaders/deform.gdshader
-res://Game/HUD/pause_menu.gd
+res://Game/Menus/main_menu.tscn
 res://Game/Levels/test_level.tscn
-res://Game/Menus/pause_menu.tscn
-res://Game/main_menu.tscn
-res://Game/Managers/scene_manager.tscn
-res://Game/Managers/scene_manager.gd
+res://Game/Levels/level_1.tscn

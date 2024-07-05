@@ -39,7 +39,7 @@ enabled=PackedStringArray("res://addons/SimpleTODO/plugin.cfg")
 
 common/snap_controls_to_pixels=false
 theme/custom="res://Resources/Menu/custom_theme.tres"
-theme/custom_font="res://Resources/Menu/m6x11.ttf"
+theme/custom_font="res://Resources/Menu/m5x7.ttf"
 theme/default_font_antialiasing=0
 theme/default_font_subpixel_positioning=0
 
@@ -65,5 +65,3 @@ Pause={
 
 textures/canvas_textures/default_texture_filter=0
 anti_aliasing/screen_space_roughness_limiter/enabled=false
-2d/snap/snap_2d_transforms_to_pixel=true
-2d/snap/snap_2d_vertices_to_pixel=true

@@ -1,7 +1,6 @@
 extends CanvasLayer
-
-@export var main_menu_scene : PackedScene
-@export var option_scene : PackedScene
+@export_file("*.tscn") var main_menu_scene : String
+@export_file("*.tscn") var option_scene : String
 
 func _ready():
 	visible = false
@@ -22,4 +21,4 @@ func _on_option_button_pressed():
 
 func _on_back_to_menu_button_pressed():
 	get_tree().paused = !get_tree().paused
-	get_tree().change_scene_to_packed(main_menu_scene)
+	get_tree().change_scene_to_file(main_menu_scene)

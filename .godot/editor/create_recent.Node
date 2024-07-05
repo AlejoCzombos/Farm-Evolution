@@ -1,3 +1,6 @@
+Node
+Camera2D
+MarginContainer
 CanvasLayer
 Control
 Container
@@ -5,10 +8,7 @@ CenterContainer
 ColorRect
 VBoxContainer
 RichTextLabel
-MarginContainer
 Button
 PanelContainer
 VSplitContainer
 TextureButton
-Node
-AnimationPlayer

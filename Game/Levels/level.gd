@@ -1,5 +1,6 @@
 extends Node2D
-@export var next_level : PackedScene
+
+@export_file("*.tscn") var next_level : String
 @export var objetives : Dictionary = {
 	"COW": {
 		1: 0,
@@ -55,7 +56,7 @@ func _on_evolve_animal():
 	Signals.updateObjetives.emit(dictionary_to_array(objetives_completed))
 	
 	if check_objetives_completed():
-		scene_manager.change_scene_to_next_level()
+		scene_manager.change_scene_to(next_level)
 
 func dictionary_to_array(dictionary: Dictionary) -> Array:
 	var result_array = []

@@ -1,10 +1,11 @@
 extends CanvasLayer
 
-@export var initial_level_scene : PackedScene
+@export_file("*.tscn") var initial_level_scene : String
 @export var option_scene : PackedScene
+@onready var scene_manager = $SceneManager
 
 func _on_play_button_pressed():
-	get_tree().change_scene_to_packed(initial_level_scene)
+	scene_manager.change_scene_to(initial_level_scene)
 
 
 func _on_options_button_pressed():

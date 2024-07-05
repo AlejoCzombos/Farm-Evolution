@@ -1,12 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://uscmcux77g0d"]
+[gd_scene load_steps=2 format=3 uid="uid://uscmcux77g0d"]
 
 [ext_resource type="Script" path="res://Game/HUD/pause_menu.gd" id="1_iur6q"]
-[ext_resource type="PackedScene" uid="uid://dnh6bfqr73q2n" path="res://Game/main_menu.tscn" id="2_vbt0x"]
 
 [node name="PauseMenu" type="CanvasLayer"]
 process_mode = 3
 script = ExtResource("1_iur6q")
-main_menu_scene = ExtResource("2_vbt0x")
+main_menu_scene = "res://Game/Menus/main_menu.tscn"
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15
@@ -17,27 +16,31 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0.0862745, 0.0862745, 0.0862745, 0.243137)
 
-[node name="MenuCenterPanel" type="CenterContainer" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="MenuPanel" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(80, 100)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -54.0
+offset_top = -56.5
+offset_right = 54.0
+offset_bottom = 56.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MenuPanel" type="PanelContainer" parent="MenuCenterPanel"]
-custom_minimum_size = Vector2(80, 100)
-layout_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="MenuCenterPanel/MenuPanel"]
+[node name="MarginContainer" type="MarginContainer" parent="MenuPanel"]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MenuCenterPanel/MenuPanel/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuPanel/MarginContainer"]
 layout_mode = 2
+alignment = 1
 
-[node name="PauseRichTextLabel" type="RichTextLabel" parent="MenuCenterPanel/MenuPanel/MarginContainer/VBoxContainer"]
+[node name="PauseRichTextLabel" type="RichTextLabel" parent="MenuPanel/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_type_variation = &"RichTextLabelTitles"
 bbcode_enabled = true
@@ -45,22 +48,22 @@ text = "[wave][center]Pause"
 fit_content = true
 scroll_active = false
 
-[node name="ButtonsContainer" type="VBoxContainer" parent="MenuCenterPanel/MenuPanel/MarginContainer/VBoxContainer"]
+[node name="ButtonsContainer" type="VBoxContainer" parent="MenuPanel/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="ContinueButton" type="Button" parent="MenuCenterPanel/MenuPanel/MarginContainer/VBoxContainer/ButtonsContainer"]
+[node name="ContinueButton" type="Button" parent="MenuPanel/MarginContainer/VBoxContainer/ButtonsContainer"]
+texture_filter = 1
 layout_mode = 2
 text = "Return"
 
-[node name="OptionButton" type="Button" parent="MenuCenterPanel/MenuPanel/MarginContainer/VBoxContainer/ButtonsContainer"]
+[node name="OptionButton" type="Button" parent="MenuPanel/MarginContainer/VBoxContainer/ButtonsContainer"]
 layout_mode = 2
 text = "Option"
 
-[node name="BackToMenuButton" type="Button" parent="MenuCenterPanel/MenuPanel/MarginContainer/VBoxContainer/ButtonsContainer"]
-custom_minimum_size = Vector2(100, 0)
+[node name="BackToMenuButton" type="Button" parent="MenuPanel/MarginContainer/VBoxContainer/ButtonsContainer"]
 layout_mode = 2
 text = "Back to menu"
 
-[connection signal="pressed" from="MenuCenterPanel/MenuPanel/MarginContainer/VBoxContainer/ButtonsContainer/ContinueButton" to="." method="_on_continue_button_pressed"]
-[connection signal="pressed" from="MenuCenterPanel/MenuPanel/MarginContainer/VBoxContainer/ButtonsContainer/OptionButton" to="." method="_on_option_button_pressed"]
-[connection signal="pressed" from="MenuCenterPanel/MenuPanel/MarginContainer/VBoxContainer/ButtonsContainer/BackToMenuButton" to="." method="_on_back_to_menu_button_pressed"]
+[connection signal="pressed" from="MenuPanel/MarginContainer/VBoxContainer/ButtonsContainer/ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="MenuPanel/MarginContainer/VBoxContainer/ButtonsContainer/OptionButton" to="." method="_on_option_button_pressed"]
+[connection signal="pressed" from="MenuPanel/MarginContainer/VBoxContainer/ButtonsContainer/BackToMenuButton" to="." method="_on_back_to_menu_button_pressed"]

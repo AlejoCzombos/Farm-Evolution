@@ -1,6 +1,5 @@
-[gd_resource type="Theme" load_steps=10 format=3 uid="uid://dfrbq13sn342k"]
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://dfrbq13sn342k"]
 
-[ext_resource type="FontFile" uid="uid://bmve0hmpi7uxi" path="res://Resources/Menu/m6x11.ttf" id="1_d2n1s"]
 [ext_resource type="Texture2D" uid="uid://0rl0it25k6uo" path="res://Resources/Menu/UIPack.png" id="2_ibvx5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_thelu"]
@@ -55,10 +54,10 @@ texture_margin_bottom = 2.0
 region_rect = Rect2(38, 102, 23, 20)
 
 [resource]
-Button/colors/font_color = Color(0.875, 0.875, 0.875, 1)
+Button/colors/font_color = Color(1, 1, 1, 1)
 Button/colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
-Button/colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
-Button/colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_focus_color = Color(0.843183, 0.843184, 0.843184, 1)
+Button/colors/font_hover_color = Color(0.873298, 0.873299, 0.873299, 1)
 Button/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
 Button/colors/font_outline_color = Color(0, 0, 0, 1)
 Button/colors/font_pressed_color = Color(1, 1, 1, 1)
@@ -68,11 +67,8 @@ Button/colors/icon_hover_color = Color(1, 1, 1, 1)
 Button/colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
 Button/colors/icon_normal_color = Color(1, 1, 1, 1)
 Button/colors/icon_pressed_color = Color(1, 1, 1, 1)
-Button/constants/h_separation = 2
-Button/constants/icon_max_width = 10
-Button/constants/outline_size = 4
+Button/constants/h_separation = 0
 Button/font_sizes/font_size = 16
-Button/fonts/font = ExtResource("1_d2n1s")
 Button/styles/disabled = SubResource("StyleBoxFlat_thelu")
 Button/styles/focus = SubResource("StyleBoxEmpty_h4ux8")
 Button/styles/hover = SubResource("StyleBoxTexture_h8e11")
@@ -83,15 +79,12 @@ CheckButton/styles/normal = null
 Label/constants/line_spacing = 3
 Label/constants/outline_size = 0
 Label/font_sizes/font_size = 16
-Label/fonts/font = ExtResource("1_d2n1s")
 PanelContainer/styles/panel = SubResource("StyleBoxTexture_afc6s")
 PanelContainerVariant/base_type = &"PanelContainer"
 PanelContainerVariant/styles/panel = SubResource("StyleBoxTexture_2856q")
 RichTextLabel/colors/font_outline_color = Color(0, 0, 0, 1)
-RichTextLabel/constants/line_separation = 7
-RichTextLabel/constants/outline_size = 4
-RichTextLabel/fonts/bold_font = ExtResource("1_d2n1s")
-RichTextLabel/fonts/normal_font = ExtResource("1_d2n1s")
+RichTextLabel/constants/line_separation = 0
+RichTextLabel/constants/outline_size = 2
 RichTextLabelTitles/base_type = &"RichTextLabel"
 RichTextLabelTitles/constants/outline_size = 4
-RichTextLabelTitles/font_sizes/normal_font_size = 16
+RichTextLabelTitles/font_sizes/normal_font_size = 24
