@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://di5k4ny2pvooi"]
+[gd_scene load_steps=12 format=4 uid="uid://di5k4ny2pvooi"]
 
 [ext_resource type="Script" path="res://Game/Levels/level.gd" id="1_ewnk4"]
 [ext_resource type="PackedScene" uid="uid://l8q7e2x5me4c" path="res://Game/Managers/scene_manager.tscn" id="4_k4dqf"]
@@ -6,7 +6,6 @@
 [ext_resource type="Shader" path="res://Resources/Shaders/chekerBoard.gdshader" id="6_7kx5f"]
 [ext_resource type="Texture2D" uid="uid://coslp3d4kvldt" path="res://Resources/Tileset/terrain.png" id="6_gx3wb"]
 [ext_resource type="PackedScene" uid="uid://uscmcux77g0d" path="res://Game/Menus/pause_menu.tscn" id="6_mdjmw"]
-[ext_resource type="PackedScene" uid="uid://cnm4h4pvbn7rx" path="res://Game/Animals/cow.tscn" id="6_toybc"]
 [ext_resource type="PackedScene" uid="uid://da8n4g4iyu2r6" path="res://Game/Player/player.tscn" id="7_8a08u"]
 [ext_resource type="Script" path="res://Game/Managers/movement_manager.gd" id="8_hh15x"]
 
@@ -616,7 +615,6 @@ texture = ExtResource("6_gx3wb")
 2:12/0/terrains_peering_bit/bottom_side = 0
 2:12/0/terrains_peering_bit/bottom_left_corner = 0
 2:12/0/terrains_peering_bit/left_side = 0
-2:12/0/custom_data_0 = true
 3:12/0 = 0
 3:12/0/terrain_set = 1
 3:12/0/terrain = 0
@@ -753,7 +751,7 @@ terrain_set_1/terrain_0/color = Color(0.703246, 0.376501, 0.224614, 1)
 terrain_set_2/mode = 0
 terrain_set_2/terrain_0/name = "Fences"
 terrain_set_2/terrain_0/color = Color(0.622537, 0.228123, 0.318502, 1)
-custom_data_layer_0/name = "walkeable"
+custom_data_layer_0/name = "walkable"
 custom_data_layer_0/type = 1
 sources/1 = SubResource("TileSetAtlasSource_w2yt6")
 
@@ -773,21 +771,6 @@ visible = false
 position = Vector2(-8, 8)
 
 [node name="Animals" type="Node" parent="."]
-
-[node name="Cow" parent="Animals" instance=ExtResource("6_toybc")]
-position = Vector2(-8, -8)
-
-[node name="Cow2" parent="Animals" instance=ExtResource("6_toybc")]
-position = Vector2(-8, -24)
-
-[node name="Cow3" parent="Animals" instance=ExtResource("6_toybc")]
-position = Vector2(-24, -24)
-
-[node name="Cow4" parent="Animals" instance=ExtResource("6_toybc")]
-position = Vector2(-24, -8)
-
-[node name="Cow5" parent="Animals" instance=ExtResource("6_toybc")]
-position = Vector2(-40, -24)
 
 [node name="Tiles" type="Node" parent="."]
 
@@ -812,9 +795,8 @@ use_parent_material = true
 tile_map_data = PackedByteArray("AAABAAIAAQACAA4AAAABAAEAAQACAA0AAAABAAAAAQACAA0AAAABAP//AQACAA0AAAABAP7/AQACAAwAAAAAAAIAAQABAA4AAAAAAAEAAQABAA0AAAAAAAAAAQABAA0AAAAAAP//AQABAA0AAAAAAP7/AQABAAwAAAD//wIAAQABAA4AAAD//wEAAQABAA0AAAD//wAAAQABAA0AAAD/////AQABAA0AAAD///7/AQABAAwAAAD+/wIAAQABAA4AAAD+/wEAAQABAA0AAAD+/wAAAQABAA0AAAD+////AQABAA0AAAD+//7/AQABAAwAAAD9/wIAAQAAAA4AAAD9/wEAAQAAAA0AAAD9/wAAAQAAAA0AAAD9////AQAAAA0AAAD9//7/AQAAAAwAAAACAP7/AQAOAAoAAAACAP//AQAOAAoAAAACAAAAAQAOAAoAAAACAAEAAQAOAAoAAAACAAIAAQAOAAoAAAD8//7/AQAOAAoAAAD8////AQAOAAoAAAD8/wAAAQAOAAoAAAD8/wEAAQAOAAoAAAD8/wIAAQAOAAoAAAD8/wMAAQAOAA0AAAD9/wMAAQAPAAkAAAD+/wMAAQAPAAkAAAD//wMAAQAPAAkAAAAAAAMAAQAPAAkAAAABAAMAAQAPAAkAAAACAAMAAQAQAA0AAAD8//3/AQAOAAkAAAD9//3/AQAPAAkAAAD+//3/AQAPAAkAAAD///3/AQAPAAkAAAAAAP3/AQAPAAkAAAABAP3/AQAPAAkAAAACAP3/AQAQAAkAAAA=")
 tile_set = SubResource("TileSet_1lb7t")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="Tiles/Movement"]
 position = Vector2(-40, -8)
 
-[node name="MovementManager" type="Node" parent="." node_paths=PackedStringArray("movement_tile")]
+[node name="MovementManager" type="Node" parent="."]
 script = ExtResource("8_hh15x")
-movement_tile = NodePath("../Tiles/Movement")

@@ -2,6 +2,14 @@ res://Game/Levels/level_base.tscn
 res://Resources/Menu/custom_theme.tres
 res://Resources/Shaders/circleTransition.gdshader
 res://Resources/Shaders/deform.gdshader
-res://Game/Menus/main_menu.tscn
-res://Game/Levels/test_level.tscn
+res://Resources/Shaders/chekerBoard.gdshader
+res://Game/Player/player.tscn
+res://Game/Autoloads/Globals.gd
+res://Game/Levels/level.gd
+res://Game/Player/player.gd
+res://Game/Managers/turns_manager.gd
 res://Game/Levels/level_1.tscn
+res://Game/Managers/movement_manager.gd
+res://Game/Autoloads/signals.gd
+res://Game/Animals/animal.gd
+res://Game/Animals/animal.tscn

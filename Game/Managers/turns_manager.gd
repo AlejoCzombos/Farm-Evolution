@@ -1,7 +1,5 @@
 extends Node
 
-@onready var tile_map : TileMap = $"../../TileMap"
-
 var move_history: Array = []
 
 enum ActionType { MOVE_PLAYER, MOVE_ANIMAL, EVOLVE_ANIMAL }

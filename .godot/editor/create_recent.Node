@@ -1,4 +1,5 @@
 Node
+TileMapLayer
 Camera2D
 MarginContainer
 CanvasLayer
@@ -11,4 +12,3 @@ RichTextLabel
 Button
 PanelContainer
 VSplitContainer
-TextureButton

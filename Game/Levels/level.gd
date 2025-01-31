@@ -17,6 +17,7 @@ extends Node2D
 }
 
 @onready var scene_manager = $SceneManager
+@onready var movement_tile = $Tiles/Movement
 
 var objetives_completed : Dictionary
 var actual_objetives : Dictionary
@@ -41,8 +42,8 @@ func _on_evolve_animal():
 		if not animal.is_activate: 
 			continue
 		
-		var animal_type = animal.getTypeString()
-		var animal_level = animal.getLevel()
+		var animal_type = animal.get_type_string()
+		var animal_level = animal.get_level()
 		
 		if animal_level in actual_objetives[animal_type].keys():
 			#prints("Esta dentro de los objetivos ", animal_type, animal_level)

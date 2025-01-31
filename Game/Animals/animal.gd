@@ -19,7 +19,6 @@ func _ready():
 	sprite.play(level_name[actual_level - 1])
 
 func move(next_position: Vector2, direction : Vector2, current_tile : Vector2i, current_tile_player: Vector2i):
-	ray_cast.enabled = true
 	ray_cast.target_position = direction * 16
 	ray_cast.force_raycast_update()
 	
@@ -27,8 +26,8 @@ func move(next_position: Vector2, direction : Vector2, current_tile : Vector2i, 
 		var area = ray_cast.get_collider()
 		
 		if actual_level != area.getLevel() or animal_type != area.getType():
-			playError()
-			area.playError()
+			play_error()
+			area.play_error()
 			return false
 		
 		Signals.movePlayerAndEvolve.emit(area, self, current_tile, current_tile_player) #se mueve una vaca y evoluciona
@@ -44,15 +43,13 @@ func move(next_position: Vector2, direction : Vector2, current_tile : Vector2i, 
 	animation_player.play("Move")
 	return true
 
-func handler_move(to_pos: Vector2i):
-	var next_position: Vector2 = tile_map.map_to_local(to_pos)
-	
-	if next_position == Vector2.ZERO:
+func handle_move(target_position: Vector2):
+	if target_position == Vector2.ZERO:
 		animation_player.play("Error")
 		return
 	
 	var tweenMoviment : Tween = create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC)
-	tweenMoviment.tween_property(self, "position", next_position , 0.2)
+	tweenMoviment.tween_property(self, "position", target_position , 0.2)
 	animation_player.play("Move")
 	return true
 
@@ -62,7 +59,7 @@ func toggle_activate():
 	sprite.visible = !sprite.visible
 	Signals.onEvolveAnimal.emit()
 
-func playError():
+func play_error():
 	if randi() % 2 == 0:
 		animation_player.play("Error")
 	else:
@@ -79,26 +76,26 @@ func destroy():
 	await tree_exited #Esperar hsata que se elimine la instancia
 	Signals.onEvolveAnimal.emit()
 
-func upLevel():
+func up_level():
 	if actual_level != 4:
 		animation_player.play("Move")
 		sprite.play(level_name[actual_level])
 		actual_level = actual_level + 1
 
-func downLevel():
+func down_level():
 	if actual_level != 1:
 		actual_level = actual_level - 1
 		animation_player.play("Move")
 		sprite.play(level_name[actual_level - 1])
 
-func getLevel():
+func get_level():
 	return actual_level
 
-func setLevel(new_level):
+func set_level(new_level):
 	actual_level = new_level
 
-func getType():
+func get_type():
 	return animal_type
 
-func getTypeString():
+func get_type_string():
 	return AnimalType.keys()[animal_type]
