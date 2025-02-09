@@ -20,23 +20,23 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_mksnw"]
 resource_name = "fade-in"
-length = 0.6
+length = 0.8
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/path = NodePath("ColorRect:material:shader_parameter/circle_size")
-tracks/0/interp = 1
+tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.6),
-"transitions": PackedFloat32Array(-2.82843, 1),
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(-2.82, 1),
 "update": 0,
-"values": [0.0, 1.107]
+"values": [0.0, 1.04]
 }
 
 [sub_resource type="Animation" id="Animation_18gmb"]
 resource_name = "fade-out"
-length = 0.6
+length = 0.8
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -44,7 +44,7 @@ tracks/0/path = NodePath("ColorRect:material:shader_parameter/circle_size")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.6),
+"times": PackedFloat32Array(0, 0.8),
 "transitions": PackedFloat32Array(-2.82843, 1),
 "update": 0,
 "values": [1.2, 0.0]
@@ -65,6 +65,7 @@ shader_parameter/screen_height = 1080.0
 
 [node name="SceneManager" type="CanvasLayer"]
 script = ExtResource("1_yg30m")
+scene_change_waiting_time = 0.4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -73,7 +74,6 @@ libraries = {
 autoplay = "fade-in"
 
 [node name="ColorRect" type="ColorRect" parent="."]
-visible = false
 z_index = 1000
 z_as_relative = false
 material = SubResource("ShaderMaterial_sthxy")

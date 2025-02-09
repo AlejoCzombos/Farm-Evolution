@@ -1,6 +1,7 @@
 extends Node
  
 var movement_tile : TileMapLayer = null
+var current_camera: Camera2D = null
 
 var current_player : Player = null :
 	set = set_current_player,

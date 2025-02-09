@@ -1,56 +1,40 @@
 extends Camera2D
 
-var _duration = 0.0
-var _period_in_ms = 0.0
-var _amplitude = 0.0
-var _timer = 0.0
-var _last_shook_timer = 0
-var _previous_x = 0.0
-var _previous_y = 0.0
-var _last_offset = Vector2(0, 0)
+@export var decay : float = 0.8 # Time it takes to reach 0% of trauma
+@export var max_offset : Vector2 = Vector2(100, 75) # Max hor/ver shake in pixels
+@export var max_roll : float = 0.1 # Maximum rotation in radians (use sparingly)
+@export var follow_node : Node2D # Node to follow (assign this to your player)
 
-func _ready():
-	set_process(true)
+@export var trauma : float = 0.5 # Current shake strength
+@export var trauma_power : int = 2 # Trauma exponent. Increase for more extreme shaking
 
-# Shake with decreasing intensity while there's time remaining.
-func _process(delta):
-	# Only shake when there's shake time remaining.
-	if _timer == 0:
-		return
-	# Only shake on certain frames.
-	_last_shook_timer = _last_shook_timer + delta
-	# Be mathematically correct in the face of lag; usually only happens once.
-	while _last_shook_timer >= _period_in_ms:
-		_last_shook_timer = _last_shook_timer - _period_in_ms
-		# Lerp between [amplitude] and 0.0 intensity based on remaining shake time.
-		var intensity = _amplitude * (1 - ((_duration - _timer) / _duration))
-		# Noise calculation logic from http://jonny.morrill.me/blog/view/14
-		var new_x = randf_range(-1.0, 1.0)
-		var x_component = intensity * (_previous_x + (delta * (new_x - _previous_x)))
-		var new_y = randf_range(-1.0, 1.0)
-		var y_component = intensity * (_previous_y + (delta * (new_y - _previous_y)))
-		_previous_x = new_x
-		_previous_y = new_y
-		# Track how much we've moved the offset, as opposed to other effects.
-		var new_offset = Vector2(x_component, y_component)
-		set_offset(get_offset() - _last_offset + new_offset)
-		_last_offset = new_offset
-	# Reset the offset when we're done shaking.
-	_timer = _timer - delta
-	if _timer <= 0:
-		_timer = 0
-		set_offset(get_offset() - _last_offset)
+#func _input(event: InputEvent) -> void:
+	##? Add trauma when space is pressed
+	#if event is InputEventKey and event.pressed and event.keycode == KEY_SPACE:
+		#add_trauma(0.5)
 
-# Kick off a new screenshake effect.
-func shake(duration, frequency, amplitude):
-	if frequency == 0: return
-	# Initialize variables.
-	_duration = duration
-	_timer = duration
-	_period_in_ms = 1.0 / frequency
-	_amplitude = amplitude
-	_previous_x = randf_range(-1.0, 1.0)
-	_previous_y = randf_range(-1.0, 1.0)
-	# Reset previous offset, if any.
-	set_offset(get_offset() - _last_offset)
-	_last_offset = Vector2(0, 0)
+func shake_camera() -> void:
+		add_trauma(0.5)
+
+func _ready() -> void:
+	Globals.current_camera = self
+	randomize()
+
+func _process(delta : float) -> void:
+	if follow_node: # If the follow node exists
+		global_position = follow_node.global_position # Set the camera's position to the follow node's position
+	if trauma: # If the camera is currently shaking
+		trauma = max(trauma - decay * delta, 0) # Decay the shake strength
+		shake() # Shake the camera
+
+## The function to use for adding trauma (screen shake)
+func add_trauma(amount : float) -> void:
+	trauma = min(trauma + amount, 1.0) # Add the amount of trauma (capped at 1.0)
+
+## This function is used to actually apply the shake to the camera
+func shake() -> void:
+	#? Set the camera's rotation and offset based on the shake strength
+	var amount = pow(trauma, trauma_power)
+	rotation = max_roll * amount * randf_range(-1, 1)
+	offset.x = max_offset.x * amount * randf_range(-1, 1)
+	offset.y = max_offset.y * amount * randf_range(-1, 1)

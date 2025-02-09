@@ -6,7 +6,7 @@
 
 [node name="main_menu" type="CanvasLayer"]
 script = ExtResource("1_8pver")
-initial_level_scene = "res://Game/Levels/test_level.tscn"
+initial_level_scene = "res://Game/Levels/level_1.tscn"
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 z_as_relative = false
@@ -89,6 +89,7 @@ offset_bottom = 6.98016
 text = "[outline_size=4][center][wave amp=20.0 freq=6.0 connected=1][color=base]Exit[/color][/wave]"
 
 [node name="SceneManager" parent="." instance=ExtResource("3_0mome")]
+layer = 10
 
 [connection signal="pressed" from="CenterContainer/MenuContainer/ButtonContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="CenterContainer/MenuContainer/ButtonContainer/OptionsButton" to="." method="_on_options_button_pressed"]

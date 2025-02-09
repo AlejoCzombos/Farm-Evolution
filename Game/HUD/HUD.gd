@@ -9,6 +9,7 @@ extends CanvasLayer
 var objetives_panels : Array = []
 
 func _ready() -> void:
+	visible = true
 	Signals.createObjetives.connect(create_objetives)
 	Signals.updateObjetives.connect(update_objetives)
 

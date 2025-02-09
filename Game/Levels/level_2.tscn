@@ -1,0 +1,45 @@
+[gd_scene load_steps=3 format=4 uid="uid://56dioe0v6qgy"]
+
+[ext_resource type="PackedScene" uid="uid://di5k4ny2pvooi" path="res://Game/Levels/level_base.tscn" id="1_6bh4w"]
+[ext_resource type="PackedScene" uid="uid://cnm4h4pvbn7rx" path="res://Game/Animals/cow.tscn" id="2_hrdg6"]
+
+[node name="level_2" instance=ExtResource("1_6bh4w")]
+next_level = "res://Game/Levels/level_1.tscn"
+objetives = {
+"COW": {
+1: 0,
+2: 2,
+3: 0,
+4: 0
+},
+"PIG": {
+1: 0,
+2: 0,
+3: 0,
+4: 0
+}
+}
+
+[node name="HUD" parent="." index="1"]
+visible = false
+
+[node name="PauseMenu" parent="." index="2"]
+visible = false
+
+[node name="Cow" parent="Animals" index="0" instance=ExtResource("2_hrdg6")]
+position = Vector2(40, -24)
+
+[node name="Cow2" parent="Animals" index="1" instance=ExtResource("2_hrdg6")]
+position = Vector2(40, -8)
+
+[node name="Cow3" parent="Animals" index="2" instance=ExtResource("2_hrdg6")]
+position = Vector2(24, -8)
+
+[node name="Cow4" parent="Animals" index="3" instance=ExtResource("2_hrdg6")]
+position = Vector2(8, -8)
+
+[node name="Terrain" parent="Tiles" index="1"]
+tile_map_data = PackedByteArray("AAADAAEAAQACAAIAAAADAAAAAQACAAEAAAADAP//AQACAAEAAAADAP7/AQAIAAEAAAACAAEAAQABAAIAAAACAAAAAQABAAEAAAACAP//AQABAAEAAAACAP7/AQABAAEAAAABAAEAAQAJAAAAAAABAAAAAQABAAEAAAABAP//AQABAAEAAAABAP7/AQABAAEAAAAAAAEAAQAJAAAAAAAAAAAAAQABAAEAAAAAAP//AQABAAEAAAAAAP7/AQABAAEAAAD//wEAAQAJAAAAAAD//wAAAQABAAEAAAD/////AQABAAEAAAD///7/AQABAAEAAAD+/wEAAQAAAAIAAAD+/wAAAQAAAAEAAAD+////AQAAAAEAAAD+//7/AQAAAAEAAAADAAMAAQAHAAkAAAADAAIAAQAHAAkAAAACAAMAAQAGAAkAAAACAAIAAQAGAAkAAAABAAMAAQAGAAkAAAABAAIAAQAGAAkAAAAAAAMAAQAGAAkAAAAAAAIAAQAGAAkAAAD//wMAAQAGAAkAAAD//wIAAQAGAAkAAAD+/wMAAQAFAAkAAAD+/wIAAQAFAAkAAAADAP3/AQACAAAAAAACAP3/AQAJAAIAAAABAP3/AQAJAAIAAAAAAP3/AQAJAAIAAAD///3/AQAJAAIAAAD+//3/AQAAAAAAAAA=")
+
+[node name="Movement" parent="Tiles" index="2"]
+tile_map_data = PackedByteArray("AAD+//3/AQAOAAkAAAADAP3/AQAQAAkAAAADAAEAAQAQAA0AAAD+/wEAAQAOAA0AAAD+/wAAAQAOAAoAAAD+////AQAOAAoAAAD+//7/AQAOAAoAAAD//wEAAQAPAAkAAAAAAAEAAQAPAAkAAAABAAEAAQAPAAkAAAACAAEAAQAPAAkAAAD///3/AQAPAAkAAAAAAP3/AQAPAAkAAAABAP3/AQAPAAkAAAACAP3/AQAPAAkAAAADAP7/AQAOAAoAAAADAP//AQAOAAoAAAADAAAAAQAOAAoAAAD///7/AQAAAAwAAAD/////AQAAAA0AAAD//wAAAQAAAA4AAAAAAAAAAQABAA4AAAABAAAAAQABAA4AAAACAAAAAQACAA4AAAACAP//AQACAA0AAAACAP7/AQACAAwAAAABAP7/AQABAAwAAAAAAP7/AQABAAwAAAAAAP//AQABAA0AAAABAP//AQABAA0AAAA=")

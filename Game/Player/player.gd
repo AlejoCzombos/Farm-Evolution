@@ -25,7 +25,7 @@ func _process(_delta):
 		move(Vector2.DOWN)
 	
 	if Input.is_action_just_pressed("ui_undo"):
-		Signals.undoMove.emit()
+		Signals.undo_move.emit()
 
 func move(direction: Vector2):
 	if direction.x < 0:

@@ -5,8 +5,6 @@ signal createObjetives
 signal updateObjetives
 
 #Almacenar movimientos
-signal move_player(player_position: Vector2)
-signal move_player_and_animal(current_tile)
+signal move_player(player_position: Vector2, player_direction: Vector2)
 
-signal movePlayerAndEvolve
-signal undoMove
+signal undo_move()

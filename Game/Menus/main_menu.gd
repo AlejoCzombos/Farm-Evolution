@@ -7,7 +7,6 @@ extends CanvasLayer
 func _on_play_button_pressed():
 	scene_manager.change_scene_to(initial_level_scene)
 
-
 func _on_options_button_pressed():
 	print("Options")
 
