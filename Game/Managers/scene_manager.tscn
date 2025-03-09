@@ -74,6 +74,7 @@ libraries = {
 autoplay = "fade-in"
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 z_index = 1000
 z_as_relative = false
 material = SubResource("ShaderMaterial_sthxy")

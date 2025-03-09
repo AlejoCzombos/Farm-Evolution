@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://8y7dxvwc5hcy"
+path="res://.godot/imported/cow_3.aseprite-1878d3bec46074535402b465e4e8650f.res"
+
+[deps]
+
+source_file="res://Assets/cows/cow_3.aseprite"
+dest_files=["res://.godot/imported/cow_3.aseprite-1878d3bec46074535402b465e4e8650f.res"]
+
+[params]
+

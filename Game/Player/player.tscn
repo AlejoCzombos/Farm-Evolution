@@ -1,31 +1,58 @@
-[gd_scene load_steps=11 format=3 uid="uid://da8n4g4iyu2r6"]
+[gd_scene load_steps=14 format=4 uid="uid://da8n4g4iyu2r6"]
 
 [ext_resource type="Script" path="res://Game/Player/player.gd" id="1_td2it"]
-[ext_resource type="Texture2D" uid="uid://dfgflcnjj2p3t" path="res://Resources/Animals/Cow.png" id="1_y6ohv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2ndt5"]
-size = Vector2(14, 14)
+size = Vector2(14, 13.9811)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_yd0eb"]
-atlas = ExtResource("1_y6ohv")
-region = Rect2(0, 32, 16, 16)
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_ju7bk"]
+_data = PackedByteArray("AAADAAUAAAABAAAAMAAAACAAAAC2AQAAUklGRq4BAABXRUJQVlA4TKIBAAAvL8AHEDfBJpJkVXvvvc8cs//462ALP2Tmr4OJbdtK7nf/0Fi/Mf/KdIgW3W2xiWzbyZ35XQ4CMIEmjNLmDgUZAT//LyAo8n+0AAAE//9vGkPTFO17su/ZvmcArvMxr5x2gpU2l6VrLV2z9A2ArRFJDzRX8szVMxe+J8b3XK87uhO5uWClpE3HWUUBiAaH3oLuAsBCiia2i4vhhPfgSrbdtFGgbThlVpoosP892tZT6T+i/27cthEkpdqOu3f+BP3+TZF/jziNk1jN7Iie/kXZKktj1W1zgDbZOvuI43Ip3ck9y7KNmt1xKeNrGV/lllf5RnMbHXpDXdX0CYcUhe8emm2jZneQbLfzdhYa2m2ru20Or6paqkWoO24PmvsNBzNXy7JIv2fedZ5bdajvsaetc3BZsuvlAJ3vNjr2zIY+4jgzzyLBewcpDrU+iKSQUQqh7rQ9kudWHdp7kHMT/d3usAOHdwcdht7fGQ7vDjtweHfQgfvAzmB4dwbHO+ftDjtweHfYYQjvKizcHQ7vSnVwWbIh684+Uw8yP+BdaY5gdzgC")
+size_override = Vector2(48, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vgawo"]
-atlas = ExtResource("1_y6ohv")
-region = Rect2(16, 32, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_veok7"]
+atlas = SubResource("PortableCompressedTexture2D_ju7bk")
+region = Rect2(0, 0, 16, 16)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_fp28e"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_5up4t"]
+atlas = SubResource("PortableCompressedTexture2D_ju7bk")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c3keo"]
+atlas = SubResource("PortableCompressedTexture2D_ju7bk")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a4s0u"]
+atlas = SubResource("PortableCompressedTexture2D_ju7bk")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x1234"]
+atlas = SubResource("PortableCompressedTexture2D_ju7bk")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d4r7p"]
 animations = [{
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_yd0eb")
+"duration": 2.5,
+"texture": SubResource("AtlasTexture_veok7")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_vgawo")
+"texture": SubResource("AtlasTexture_5up4t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c3keo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a4s0u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x1234")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_veok7")
 }],
 "loop": true,
 "name": &"idle",
-"speed": 1.5
+"speed": 5.0
 }]
 
 [sub_resource type="Animation" id="Animation_3vbnr"]
@@ -116,16 +143,36 @@ texture_filter = 1
 script = ExtResource("1_td2it")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 1)
+position = Vector2(0, -0.00746107)
 shape = SubResource("RectangleShape2D_2ndt5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, 3)
-sprite_frames = SubResource("SpriteFrames_fp28e")
+texture_filter = 1
+position = Vector2(0, 2)
+sprite_frames = SubResource("SpriteFrames_d4r7p")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.735716
+frame_progress = 0.886127
 offset = Vector2(0, -3)
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": false,
+"layer_section": false,
+"output_section": false,
+"pending_changes": {},
+"slice_section": false
+}
+metadata/_aseprite_wizard_config_ = {
+"embed_tex": true,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"should_round_fps": true,
+"slice": "",
+"source": "res://Assets/player/player.aseprite"
+}
+metadata/_aseprite_wizard_source_file_hash_ = "334bd7ca562f85d6b060d8815c9d13fd"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

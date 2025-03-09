@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://di5k4ny2pvooi"]
+[gd_scene load_steps=13 format=4 uid="uid://di5k4ny2pvooi"]
 
 [ext_resource type="Script" path="res://Game/Levels/level.gd" id="1_ewnk4"]
 [ext_resource type="PackedScene" uid="uid://l8q7e2x5me4c" path="res://Game/Managers/scene_manager.tscn" id="4_k4dqf"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://coslp3d4kvldt" path="res://Resources/Tileset/terrain.png" id="6_gx3wb"]
 [ext_resource type="PackedScene" uid="uid://uscmcux77g0d" path="res://Game/Menus/pause_menu.tscn" id="6_mdjmw"]
 [ext_resource type="PackedScene" uid="uid://da8n4g4iyu2r6" path="res://Game/Player/player.tscn" id="7_8a08u"]
+[ext_resource type="Script" path="res://Game/Utils/CameraShake.gd" id="8_2de64"]
 [ext_resource type="Script" path="res://Game/Managers/movement_manager.gd" id="8_hh15x"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ky36h"]
@@ -800,6 +801,8 @@ metadata/_edit_lock_ = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-40, -8)
+script = ExtResource("8_2de64")
+max_offset = Vector2(5, 3)
 
 [node name="MovementManager" type="Node" parent="." node_paths=PackedStringArray("movement_tile")]
 script = ExtResource("8_hh15x")

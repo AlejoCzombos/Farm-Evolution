@@ -20,12 +20,6 @@ objetives = {
 }
 }
 
-[node name="HUD" parent="." index="1"]
-visible = false
-
-[node name="PauseMenu" parent="." index="2"]
-visible = false
-
 [node name="Cow" parent="Animals" index="0" instance=ExtResource("2_hrdg6")]
 position = Vector2(40, -24)
 

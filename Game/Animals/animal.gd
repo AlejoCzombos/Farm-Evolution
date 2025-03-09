@@ -11,11 +11,17 @@ enum AnimalType {COW, PIG}
 @onready var ray_cast = $RayCast2D
 @onready var collision = $CollisionShape2D
 
-var level_name: Array = ["Level1", "Level2", "Level3", "Level4"]
+var level_name: Array = ["idle_level_1", "idle_level_2", "idle_level_3", "idle_level_4"]
 var is_activate: bool = true
 
 func _ready():
 	sprite.play(level_name[actual_level - 1])
+
+	#test
+	Signals.print_cow_current_tile.connect(print_current_tile)
+
+func print_current_tile() -> void:
+	print("Current tile cow ", self , " : ", Globals.movement_tile.local_to_map(global_position))
 
 func handle_move(target_position: Vector2):
 	if target_position == Vector2.ZERO:

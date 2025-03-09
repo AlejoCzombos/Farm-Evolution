@@ -8,3 +8,4 @@ signal updateObjetives
 signal move_player(player_position: Vector2, player_direction: Vector2)
 
 signal undo_move()
+signal print_cow_current_tile()

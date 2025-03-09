@@ -60,12 +60,12 @@ func move_player_and_animal(direction: Vector2, player_current_tile : Vector2i, 
 			return
 		
 		#Signals.movePlayerAndEvolve.emit(area, self, current_tile, current_tile_player) #se mueve una vaca y evoluciona
-		var second_animal_target_position = calculate_target_position(animal_target_tile)
+		var animal_target_position = calculate_target_position(animal_target_tile)
 		
 		Globals.current_camera.shake_camera()
 		storage_move_player_and_animal_and_evolve(second_animal, animal, animal_current_tile, player_current_tile)
 		
-		animal.move_and_diactivate(second_animal_target_position)
+		animal.move_and_diactivate(animal_target_position)
 		second_animal.up_level()
 		if move_player_and_animal_together:
 			var player_target_position = calculate_target_position(player_target_tile)
@@ -73,13 +73,12 @@ func move_player_and_animal(direction: Vector2, player_current_tile : Vector2i, 
 	else:  #Solo se mueve un animal
 		storage_move_player_and_animal(animal, animal_current_tile, player_current_tile)
 		
-		Globals.current_camera.shake_camera()
+		# Globals.current_camera.shake_camera()
 		var animal_target_position = calculate_target_position(animal_target_tile)
 		animal.handle_move(animal_target_position)
 		
-		if move_player_and_animal_together:
-			var player_target_position = calculate_target_position(player_target_tile)
-			player.handle_move(player_target_position)
+		var player_target_position = calculate_target_position(player_target_tile)
+		player.handle_move(player_target_position)
 
 func is_tile_walkeable(target_tile) -> bool:
 	var tile_data : TileData = movement_tile.get_cell_tile_data(target_tile)
@@ -115,6 +114,7 @@ func undo_last_action():
 				undo_move_player_and_animal(data)
 			ActionType.MOVE_PLAYER_AND_ANIMAL_AND_EVOLVE:
 				undo_move_player_and_animal_and_evolve(data)
+	# print_history()
 
 func storage_move_player(from_tile_player: Vector2i):
 	record_action(ActionType.MOVE_PLAYER, { "from_tile_player": from_tile_player })
@@ -163,9 +163,10 @@ func undo_move_player_and_animal_and_evolve(data: Dictionary):
 	animal_diactivate.toggle_activate()
 	
 	player.handle_move(player_target_position)
-	animal.handle_move(animal_target_position)
+	animal_diactivate.handle_move(animal_target_position)
 
 func print_history():
 	for move in move_history:
 		if move["type"] != ActionType.MOVE_PLAYER: print(move)
 	print("\n")
+	Signals.print_cow_current_tile.emit()
