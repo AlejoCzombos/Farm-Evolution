@@ -3,7 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://nte0em5d7ugp" path="res://Game/Animals/animal.tscn" id="1_5hvq7"]
 [ext_resource type="Texture2D" uid="uid://dfgflcnjj2p3t" path="res://Resources/Animals/Cow.png" id="2_aya18"]
 
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_pt5p2"]
 atlas = ExtResource("2_aya18")
 region = Rect2(0, 16, 16, 16)

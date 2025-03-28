@@ -1,6 +1,7 @@
-[gd_scene load_steps=14 format=4 uid="uid://da8n4g4iyu2r6"]
+[gd_scene load_steps=15 format=4 uid="uid://da8n4g4iyu2r6"]
 
-[ext_resource type="Script" path="res://Game/Player/player.gd" id="1_td2it"]
+[ext_resource type="Script" uid="uid://10xikflfcgim" path="res://Game/Player/player.gd" id="1_td2it"]
+[ext_resource type="PackedScene" uid="uid://b4ukajln0fm8x" path="res://Game/Player/move_particle.tscn" id="2_s3asc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2ndt5"]
 size = Vector2(14, 13.9811)
@@ -130,9 +131,9 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wpfj0"]
 _data = {
-"Error": SubResource("Animation_3vbnr"),
-"Move": SubResource("Animation_s2fm5"),
-"RESET": SubResource("Animation_g7dsv")
+&"Error": SubResource("Animation_3vbnr"),
+&"Move": SubResource("Animation_s2fm5"),
+&"RESET": SubResource("Animation_g7dsv")
 }
 
 [node name="Player" type="CharacterBody2D"]
@@ -141,6 +142,7 @@ visibility_layer = 16
 z_index = 20
 texture_filter = 1
 script = ExtResource("1_td2it")
+move_particles = ExtResource("2_s3asc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -0.00746107)
@@ -176,7 +178,7 @@ metadata/_aseprite_wizard_source_file_hash_ = "334bd7ca562f85d6b060d8815c9d13fd"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_wpfj0")
+&"": SubResource("AnimationLibrary_wpfj0")
 }
 
 [node name="RayCast2D" type="RayCast2D" parent="."]

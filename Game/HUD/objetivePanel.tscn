@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://f2ro8hkm550c"]
 
-[ext_resource type="Script" path="res://Game/HUD/objetivePanel.gd" id="1_41kaf"]
+[ext_resource type="Script" uid="uid://df3t1p1i43sid" path="res://Game/HUD/objetivePanel.gd" id="1_41kaf"]
 [ext_resource type="Texture2D" uid="uid://dngirqs0lqm2h" path="res://Resources/Animals/Cow/cow_level1.png" id="2_os00y"]
 [ext_resource type="Texture2D" uid="uid://i7tnia2b35i" path="res://Resources/Animals/Cow/cow_level2.png" id="3_trjt0"]
 [ext_resource type="Texture2D" uid="uid://bo5wewhmrp5ij" path="res://Resources/Animals/Cow/cow_level3.png" id="4_e1m30"]

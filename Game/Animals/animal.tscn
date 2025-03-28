@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://nte0em5d7ugp"]
 
-[ext_resource type="Script" path="res://Game/Animals/cow.gd" id="2_pq20n"]
+[ext_resource type="Script" uid="uid://di6e6ogkh5vav" path="res://Game/Animals/cow.gd" id="2_pq20n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dgyki"]
 size = Vector2(16, 16)
@@ -132,10 +132,10 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lx7tb"]
 _data = {
-"Error": SubResource("Animation_27udl"),
-"Error2": SubResource("Animation_ak0pg"),
-"Move": SubResource("Animation_1sphn"),
-"RESET": SubResource("Animation_uri2j")
+&"Error": SubResource("Animation_27udl"),
+&"Error2": SubResource("Animation_ak0pg"),
+&"Move": SubResource("Animation_1sphn"),
+&"RESET": SubResource("Animation_uri2j")
 }
 
 [node name="Animal" type="Area2D" groups=["Animal"]]

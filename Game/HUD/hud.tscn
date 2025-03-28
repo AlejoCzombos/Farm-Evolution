@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bfaaxf0qg36k6"]
 
-[ext_resource type="Script" path="res://Game/HUD/HUD.gd" id="1_c6tig"]
+[ext_resource type="Script" uid="uid://d0skq41ww2fjd" path="res://Game/HUD/HUD.gd" id="1_c6tig"]
 [ext_resource type="PackedScene" uid="uid://f2ro8hkm550c" path="res://Game/HUD/objetivePanel.tscn" id="1_ydi1f"]
 
 [sub_resource type="Animation" id="Animation_nuuee"]
@@ -22,7 +22,7 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_po16g"]
 _data = {
-"open": SubResource("Animation_nuuee")
+&"open": SubResource("Animation_nuuee")
 }
 
 [node name="HUD" type="CanvasLayer"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://l8q7e2x5me4c"]
 
-[ext_resource type="Shader" path="res://Resources/Shaders/circleTransition.gdshader" id="1_l3qan"]
-[ext_resource type="Script" path="res://Game/Managers/scene_manager.gd" id="1_yg30m"]
+[ext_resource type="Shader" uid="uid://clye04aqhrpcb" path="res://Resources/Shaders/circleTransition.gdshader" id="1_l3qan"]
+[ext_resource type="Script" uid="uid://cnbtic6kilbr4" path="res://Game/Managers/scene_manager.gd" id="1_yg30m"]
 
 [sub_resource type="Animation" id="Animation_qs6i7"]
 length = 0.001
@@ -52,9 +52,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_roy12"]
 _data = {
-"RESET": SubResource("Animation_qs6i7"),
-"fade-in": SubResource("Animation_mksnw"),
-"fade-out": SubResource("Animation_18gmb")
+&"RESET": SubResource("Animation_qs6i7"),
+&"fade-in": SubResource("Animation_mksnw"),
+&"fade-out": SubResource("Animation_18gmb")
 }
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sthxy"]

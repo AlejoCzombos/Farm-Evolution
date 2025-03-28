@@ -4,6 +4,9 @@ class_name Player
 @onready var animation_player = $AnimationPlayer
 @onready var ray_cast = $RayCast2D
 @onready var animated_sprite = $AnimatedSprite2D
+# @export_global_file("*.tscn") var move_particles
+@export var move_particles : PackedScene
+var particles : CPUParticles2D
 
 var is_moving : bool = false
 var actual_direction = Vector2.RIGHT
@@ -41,6 +44,11 @@ func handle_move(target_position: Vector2):
 		return
 	
 	if not is_moving:
+		var move_particles_instance: CPUParticles2D = move_particles.instantiate()
+		get_tree().root.add_child(move_particles_instance)
+		print(move_particles_instance)
+		move_particles_instance.global_position = global_position
+
 		var tweenMoviment : Tween = create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_QUART)
 		tweenMoviment.tween_property(self, "position", target_position , 0.15)
 		tweenMoviment.finished.connect(toggle_is_moving)

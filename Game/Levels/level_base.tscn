@@ -1,14 +1,14 @@
 [gd_scene load_steps=13 format=4 uid="uid://di5k4ny2pvooi"]
 
-[ext_resource type="Script" path="res://Game/Levels/level.gd" id="1_ewnk4"]
+[ext_resource type="Script" uid="uid://bb24r6a68bgjx" path="res://Game/Levels/level.gd" id="1_ewnk4"]
 [ext_resource type="PackedScene" uid="uid://l8q7e2x5me4c" path="res://Game/Managers/scene_manager.tscn" id="4_k4dqf"]
 [ext_resource type="PackedScene" uid="uid://bfaaxf0qg36k6" path="res://Game/HUD/hud.tscn" id="5_0fqwn"]
-[ext_resource type="Shader" path="res://Resources/Shaders/chekerBoard.gdshader" id="6_7kx5f"]
+[ext_resource type="Shader" uid="uid://dbobmxsklakxh" path="res://Resources/Shaders/chekerBoard.gdshader" id="6_7kx5f"]
 [ext_resource type="Texture2D" uid="uid://coslp3d4kvldt" path="res://Resources/Tileset/terrain.png" id="6_gx3wb"]
 [ext_resource type="PackedScene" uid="uid://uscmcux77g0d" path="res://Game/Menus/pause_menu.tscn" id="6_mdjmw"]
 [ext_resource type="PackedScene" uid="uid://da8n4g4iyu2r6" path="res://Game/Player/player.tscn" id="7_8a08u"]
-[ext_resource type="Script" path="res://Game/Utils/CameraShake.gd" id="8_2de64"]
-[ext_resource type="Script" path="res://Game/Managers/movement_manager.gd" id="8_hh15x"]
+[ext_resource type="Script" uid="uid://ds2w84yd8u0t0" path="res://Game/Utils/CameraShake.gd" id="8_2de64"]
+[ext_resource type="Script" uid="uid://ng2oautyg4j1" path="res://Game/Managers/movement_manager.gd" id="8_hh15x"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ky36h"]
 shader = ExtResource("6_7kx5f")

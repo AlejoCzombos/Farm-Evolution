@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bfefmb3j5osdr"]
 
-[ext_resource type="Script" path="res://Game/Menus/RichTextButton.gd" id="1_4yyuk"]
+[ext_resource type="Script" uid="uid://dfnc4r3l8bwyr" path="res://Game/Menus/RichTextButton.gd" id="1_4yyuk"]
 
 [node name="RichTextButton" type="Button"]
 texture_filter = 1
