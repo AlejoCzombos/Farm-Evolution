@@ -46,7 +46,6 @@ func handle_move(target_position: Vector2):
 	if not is_moving:
 		var move_particles_instance: CPUParticles2D = move_particles.instantiate()
 		get_tree().root.add_child(move_particles_instance)
-		print(move_particles_instance)
 		move_particles_instance.global_position = global_position
 
 		var tweenMoviment : Tween = create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_QUART)

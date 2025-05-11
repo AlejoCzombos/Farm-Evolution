@@ -162,7 +162,7 @@ offset = Vector2(0, -5)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_lx7tb")
+&"": SubResource("AnimationLibrary_lx7tb")
 }
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
@@ -170,3 +170,9 @@ target_position = Vector2(0, 16)
 collision_mask = 2
 collide_with_areas = true
 collide_with_bodies = false
+
+[node name="MoveAudio" type="AudioStreamPlayer2D" parent="."]
+bus = &"SFX"
+
+[node name="ErrorAudio" type="AudioStreamPlayer2D" parent="."]
+bus = &"SFX"

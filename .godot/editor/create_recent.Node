@@ -1,3 +1,4 @@
+AudioStreamPlayer2D
 AnimationPlayer
 CPUParticles2D
 GPUParticles2D
@@ -11,5 +12,3 @@ Container
 CenterContainer
 ColorRect
 VBoxContainer
-RichTextLabel
-Button

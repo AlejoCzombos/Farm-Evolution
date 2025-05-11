@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=4 uid="uid://dbye5nc4d7w0x"]
+
+[ext_resource type="PackedScene" uid="uid://di5k4ny2pvooi" path="res://Game/Levels/level_base.tscn" id="1_hsrku"]
+[ext_resource type="PackedScene" uid="uid://cnm4h4pvbn7rx" path="res://Game/Animals/cow.tscn" id="2_vnx5f"]
+
+[node name="LevelBase" instance=ExtResource("1_hsrku")]
+next_level = "uid://dudeuxipiyb2v"
+objetives = {
+"COW": {
+1: 0,
+2: 0,
+3: 1,
+4: 0
+},
+"PIG": {
+1: 0,
+2: 0,
+3: 0,
+4: 0
+}
+}
+
+[node name="Cow" parent="Animals" index="0" instance=ExtResource("2_vnx5f")]
+position = Vector2(8, 8)
+
+[node name="Cow2" parent="Animals" index="1" instance=ExtResource("2_vnx5f")]
+position = Vector2(8, 24)
+
+[node name="Cow3" parent="Animals" index="2" instance=ExtResource("2_vnx5f")]
+position = Vector2(24, 8)
+
+[node name="Cow4" parent="Animals" index="3" instance=ExtResource("2_vnx5f")]
+position = Vector2(24, -8)
+
+[node name="Terrain" parent="Tiles" index="1"]
+tile_map_data = PackedByteArray("AAD//wAAAQABAAEAAAAAAAAAAQABAAEAAAABAAAAAQABAAEAAAABAP//AQABAAEAAAABAAEAAQABAAEAAAABAAIAAQABAAEAAAAAAAEAAQABAAEAAAAAAAIAAQABAAEAAAD//wEAAQABAAEAAAD//wIAAQABAAEAAAD+/wIAAQAAAAEAAAD+/wEAAQAAAAEAAAD+/wAAAQAAAAEAAAD+////AQAAAAAAAAD/////AQABAAAAAAAAAP//AQAKAAIAAAAAAP7/AQAAAAAAAAABAP7/AQAJAAIAAAACAP7/AQACAAAAAAACAP//AQAIAAEAAAACAAAAAQACAAEAAAACAAEAAQAIAAEAAAACAAIAAQAIAAEAAAACAAMAAQACAAIAAAABAAMAAQABAAIAAAAAAAMAAQABAAIAAAD//wMAAQABAAIAAAD+/wMAAQAAAAIAAAA=")
+
+[node name="Movement" parent="Tiles" index="2"]
+tile_map_data = PackedByteArray("AAD//wAAAQAAAAwAAAD//wEAAQAAAA0AAAD//wIAAQAAAA4AAAAAAAIAAQABAA4AAAAAAAEAAQABAA0AAAAAAAAAAQABAAwAAAABAAAAAQACAA0AAAABAP//AQADAAwAAAABAAEAAQACAA0AAAABAAIAAQACAA4AAAD+////AQAOAAkAAAAAAP7/AQAOAAkAAAACAP7/AQAQAAkAAAACAAMAAQAQAA0AAAD+/wMAAQAOAA0AAAD+/wAAAQAOAAoAAAD+/wEAAQAOAAoAAAD+/wIAAQAOAAoAAAACAP//AQAOAAoAAAACAAAAAQAOAAoAAAACAAEAAQAOAAoAAAACAAIAAQAOAAoAAAD//wMAAQAPAAkAAAAAAAMAAQAPAAkAAAABAAMAAQAPAAkAAAD/////AQAPAAkAAAABAP7/AQAPAAkAAAAAAP//AQAOAAoAAAA=")

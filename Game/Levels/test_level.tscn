@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=4 uid="uid://df3pnycjan3hd"]
+[gd_scene load_steps=4 format=4 uid="uid://df3pnycjan3hd"]
 
 [ext_resource type="PackedScene" uid="uid://di5k4ny2pvooi" path="res://Game/Levels/level_base.tscn" id="1_a71ox"]
+[ext_resource type="PackedScene" uid="uid://01dnsy4p70b" path="res://Game/Animals/pig.tscn" id="3_3dd78"]
 [ext_resource type="PackedScene" uid="uid://cnm4h4pvbn7rx" path="res://Game/Animals/cow.tscn" id="4_w5sp0"]
 
 [node name="test_level" instance=ExtResource("1_a71ox")]
@@ -31,17 +32,17 @@ position = Vector2(24, 8)
 [node name="Cow4" parent="Animals" index="3" instance=ExtResource("4_w5sp0")]
 position = Vector2(40, 8)
 
-[node name="Cow5" parent="Animals" index="4" instance=ExtResource("4_w5sp0")]
-position = Vector2(72, 8)
-
-[node name="Cow6" parent="Animals" index="5" instance=ExtResource("4_w5sp0")]
-position = Vector2(72, -8)
-
-[node name="Cow7" parent="Animals" index="6" instance=ExtResource("4_w5sp0")]
+[node name="pig" parent="Animals" index="4" instance=ExtResource("3_3dd78")]
 position = Vector2(88, -8)
 
-[node name="Cow8" parent="Animals" index="7" instance=ExtResource("4_w5sp0")]
+[node name="pig2" parent="Animals" index="5" instance=ExtResource("3_3dd78")]
 position = Vector2(88, 8)
+
+[node name="pig3" parent="Animals" index="6" instance=ExtResource("3_3dd78")]
+position = Vector2(72, 8)
+
+[node name="pig4" parent="Animals" index="7" instance=ExtResource("3_3dd78")]
+position = Vector2(72, -8)
 
 [node name="Terrain" parent="Tiles" index="1"]
 tile_map_data = PackedByteArray("AAAGAAIAAQACAAIAAAAGAAEAAQAIAAEAAAAGAAAAAQAIAAEAAAAGAP//AQACAAEAAAAGAP7/AQACAAEAAAAGAP3/AQACAAAAAAAFAAIAAQAJAAAAAAAFAAEAAQABAAEAAAAFAAAAAQABAAEAAAAFAP//AQABAAEAAAAFAP7/AQABAAEAAAAFAP3/AQAJAAIAAAAEAAIAAQABAAIAAAAEAAEAAQABAAEAAAAEAAAAAQABAAEAAAAEAP//AQABAAEAAAAEAP7/AQABAAEAAAAEAP3/AQABAAAAAAADAAIAAQABAAIAAAADAAEAAQABAAEAAAADAAAAAQABAAEAAAADAP//AQABAAEAAAADAP7/AQABAAEAAAADAP3/AQABAAAAAAACAAIAAQAJAAAAAAACAAEAAQABAAEAAAACAAAAAQABAAEAAAACAP//AQABAAEAAAACAP7/AQABAAEAAAACAP3/AQAJAAIAAAABAAIAAQABAAIAAAABAAEAAQABAAEAAAABAAAAAQABAAEAAAABAP//AQABAAEAAAABAP7/AQABAAEAAAABAP3/AQABAAAAAAAAAAIAAQAJAAAAAAAAAAEAAQABAAEAAAAAAAAAAQABAAEAAAAAAP//AQABAAEAAAAAAP7/AQABAAEAAAAAAP3/AQABAAAAAAD//wIAAQAJAAAAAAD//wEAAQABAAEAAAD//wAAAQABAAEAAAD/////AQABAAEAAAD///7/AQABAAEAAAD///3/AQAJAAIAAAD+/wIAAQABAAIAAAD+/wEAAQABAAEAAAD+/wAAAQABAAEAAAD+////AQABAAEAAAD+//7/AQABAAEAAAD+//3/AQAJAAIAAAD9/wIAAQAAAAIAAAD9/wEAAQAKAAEAAAD9/wAAAQAKAAEAAAD9////AQAKAAEAAAD9//7/AQAKAAEAAAD9//3/AQAAAAAAAAAGAAQAAQAHAAkAAAAGAAMAAQAHAAkAAAAFAAQAAQAGAAkAAAAFAAMAAQAGAAkAAAAEAAQAAQAGAAkAAAAEAAMAAQAGAAkAAAADAAQAAQAGAAkAAAADAAMAAQAGAAkAAAACAAQAAQAGAAkAAAACAAMAAQAGAAkAAAABAAQAAQAGAAkAAAABAAMAAQAGAAkAAAAAAAQAAQAGAAkAAAAAAAMAAQAGAAkAAAD//wQAAQAGAAkAAAD//wMAAQAGAAkAAAD+/wQAAQAGAAkAAAD+/wMAAQAGAAkAAAD9/wQAAQAFAAkAAAD9/wMAAQAFAAkAAAA=")

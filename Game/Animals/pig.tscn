@@ -1,7 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://01dnsy4p70b"]
+[gd_scene load_steps=12 format=3 uid="uid://01dnsy4p70b"]
 
 [ext_resource type="PackedScene" uid="uid://nte0em5d7ugp" path="res://Game/Animals/animal.tscn" id="1_5hvq7"]
 [ext_resource type="Texture2D" uid="uid://dfgflcnjj2p3t" path="res://Resources/Animals/Cow.png" id="2_aya18"]
+[ext_resource type="AudioStream" uid="uid://bsy6hikexkdfq" path="res://Resources/sfx/pig/oinking_1.wav" id="3_kqooh"]
+[ext_resource type="AudioStream" uid="uid://xu3htckhmeh" path="res://Resources/sfx/pig/oinking_2.wav" id="4_lebkv"]
+[ext_resource type="AudioStream" uid="uid://hmuuhp1fnnp6" path="res://Resources/sfx/pig/oinking_3.wav" id="5_nit3k"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pt5p2"]
 atlas = ExtResource("2_aya18")
@@ -26,7 +29,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_pt5p2")
 }],
 "loop": true,
-"name": &"Level1",
+"name": &"idle_level_1",
 "speed": 5.0
 }, {
 "frames": [{
@@ -34,7 +37,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_60pct")
 }],
 "loop": true,
-"name": &"Level2",
+"name": &"idle_level_2",
 "speed": 5.0
 }, {
 "frames": [{
@@ -42,7 +45,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_6nycg")
 }],
 "loop": true,
-"name": &"Level3",
+"name": &"idle_level_3",
 "speed": 5.0
 }, {
 "frames": [{
@@ -50,12 +53,25 @@ animations = [{
 "texture": SubResource("AtlasTexture_jsrf5")
 }],
 "loop": true,
-"name": &"Level4",
+"name": &"idle_level_4",
 "speed": 5.0
 }]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ahlfd"]
+random_pitch = 1.33
+streams_count = 3
+stream_0/stream = ExtResource("3_kqooh")
+stream_1/stream = ExtResource("4_lebkv")
+stream_2/stream = ExtResource("5_nit3k")
 
 [node name="pig" instance=ExtResource("1_5hvq7")]
 animal_type = 1
 
 [node name="Sprite" parent="." index="1"]
 sprite_frames = SubResource("SpriteFrames_dykwc")
+animation = &"idle_level_1"
+autoplay = "idle_level_1"
+
+[node name="MoveAudio" parent="." index="4"]
+stream = SubResource("AudioStreamRandomizer_ahlfd")
+pitch_scale = 1.1

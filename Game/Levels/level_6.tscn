@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=4 uid="uid://dpeccttrnbsgn"]
+
+[ext_resource type="PackedScene" uid="uid://di5k4ny2pvooi" path="res://Game/Levels/level_base.tscn" id="1_aaekq"]
+[ext_resource type="PackedScene" uid="uid://cnm4h4pvbn7rx" path="res://Game/Animals/cow.tscn" id="2_bc7rc"]
+
+[node name="LevelBase" instance=ExtResource("1_aaekq")]
+next_level = "uid://craowpiwcp087"
+objetives = {
+"COW": {
+1: 0,
+2: 2,
+3: 0,
+4: 0
+},
+"PIG": {
+1: 0,
+2: 0,
+3: 0,
+4: 0
+}
+}
+
+[node name="Cow" parent="Animals" index="0" instance=ExtResource("2_bc7rc")]
+position = Vector2(-24, -8)
+
+[node name="Cow2" parent="Animals" index="1" instance=ExtResource("2_bc7rc")]
+position = Vector2(-24, 8)
+
+[node name="Cow3" parent="Animals" index="2" instance=ExtResource("2_bc7rc")]
+position = Vector2(8, 24)
+
+[node name="Cow4" parent="Animals" index="3" instance=ExtResource("2_bc7rc")]
+position = Vector2(-8, 24)
+
+[node name="Terrain" parent="Tiles" index="1"]
+tile_map_data = PackedByteArray("AAD9//7/AQAAAAAAAAD9////AQAKAAEAAAD9/wAAAQAKAAEAAAD9/wEAAQAAAAEAAAD9/wIAAQAAAAIAAAD+/wIAAQAKAAAAAAD+/wMAAQAAAAIAAAD//wMAAQABAAIAAAAAAAMAAQAJAAAAAAABAAMAAQAJAAAAAAACAAMAAQACAAIAAAACAAIAAQACAAEAAAACAAEAAQAIAAEAAAACAAAAAQACAAAAAAABAAAAAQABAAEAAAABAP//AQACAAAAAAAAAP//AQAJAAIAAAD/////AQAIAAIAAAD///7/AQACAAAAAAD+//7/AQABAAAAAAD+////AQABAAEAAAD+/wAAAQABAAEAAAD+/wEAAQABAAEAAAD//wEAAQABAAEAAAD//wAAAQABAAEAAAD//wIAAQABAAEAAAAAAAIAAQABAAEAAAABAAIAAQABAAEAAAABAAEAAQABAAEAAAAAAAAAAQABAAEAAAAAAAEAAQABAAEAAAA=")
+
+[node name="Movement" parent="Tiles" index="2"]
+tile_map_data = PackedByteArray("AAD+////AQADAAwAAAD+/wAAAQAAAA0AAAD+/wEAAQAAAA4AAAD//wEAAQABAA0AAAAAAAEAAQABAA0AAAAAAAAAAQACAAwAAAD//wAAAQABAAwAAAD//wIAAQAAAA4AAAAAAAIAAQABAA4AAAABAAIAAQACAA4AAAABAAEAAQACAAwAAAD9////AQAPAAwAAAD9/wAAAQAPAAwAAAD9/wEAAQAPAAwAAAD9/wIAAQAPAAwAAAD+/wIAAQAPAAsAAAD+/wMAAQAPAAwAAAD//wMAAQAPAAsAAAAAAAMAAQAPAAsAAAABAAMAAQAPAAsAAAACAAMAAQAPAAwAAAACAAIAAQAPAAwAAAACAAEAAQAPAAwAAAACAAAAAQAPAAsAAAABAAAAAQAPAAwAAAABAP//AQAPAAsAAAAAAP//AQAPAAsAAAD/////AQAPAAwAAAD///7/AQAPAAsAAAD+//7/AQAPAAsAAAD9//7/AQAPAAsAAAA=")
